@@ -7,7 +7,7 @@ const steps = [
   {
     number: "01",
     icon: Search,
-    title: "Analisis & Diagnostico",
+    title: "Análisis & Diagnóstico",
     description:
       "Evaluamos tu presencia digital actual, identificamos oportunidades y definimos objetivos claros para tu proyecto.",
     tags: [],
@@ -15,23 +15,23 @@ const steps = [
   {
     number: "02",
     icon: PenTool,
-    title: "Diseno Estrategico",
+    title: "Diseño Estratégico",
     description:
-      "Creamos wireframes, prototipos y disenos UI/UX alineados con tu marca y las mejores practicas de conversion.",
+      "Creamos wireframes, prototipos y diseños UI/UX alineados con tu marca y las mejores prácticas de conversión.",
     tags: [],
   },
   {
     number: "03",
     icon: Code2,
-    title: "Desarrollo con IA & Mejores Practicas",
+    title: "Desarrollo con IA & Mejores Prácticas",
     description:
-      "Implementamos tu proyecto con tecnologia de punta, inteligencia artificial y metodologias agiles.",
+      "Implementamos tu proyecto con tecnología de punta, inteligencia artificial y metodologías ágiles.",
     tags: ["AI Copilots", "CI/CD", "Testing", "Docker", "Vercel"],
   },
   {
     number: "04",
     icon: Rocket,
-    title: "Lanzamiento & Evolucion",
+    title: "Lanzamiento & Evolución",
     description:
       "Desplegamos tu proyecto, monitoreamos su rendimiento y lo evolucionamos continuamente para maximizar resultados.",
     tags: [],
@@ -41,7 +41,7 @@ const steps = [
 const stats = [
   { value: "+50", label: "Proyectos" },
   { value: "99.9%", label: "Tiempo de Actividad" },
-  { value: "98%", label: "Satisfaccion" },
+  { value: "98%", label: "Satisfacción" },
 ]
 
 function useInView(threshold = 0.2) {
@@ -88,7 +88,7 @@ export function Strategy() {
             Un proceso probado para resultados reales
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Cada proyecto sigue una metodologia clara que garantiza calidad,
+            Cada proyecto sigue una metodología clara que garantiza calidad,
             transparencia y resultados medibles.
           </p>
         </div>

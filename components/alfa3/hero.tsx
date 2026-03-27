@@ -50,7 +50,7 @@ export function Hero() {
           >
             Transformamos ideas en{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              {"codigo que impacta"}
+              {"código que impacta"}
             </span>
             <span className="animate-blink ml-1 inline-block h-[0.8em] w-[3px] translate-y-[0.05em] bg-primary" />
           </h1>
@@ -59,8 +59,8 @@ export function Hero() {
             className="animate-fade-up mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground"
             style={{ animationDelay: "0.2s" }}
           >
-            Creamos experiencias digitales excepcionales con las mejores practicas
-            de desarrollo e inteligencia artificial. Tu proyecto, nuestro codigo.
+            Creamos experiencias digitales excepcionales con las mejores prácticas
+            de desarrollo e inteligencia artificial. Tu proyecto, nuestro código.
           </p>
 
           <div

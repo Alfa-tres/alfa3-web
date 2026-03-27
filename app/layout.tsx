@@ -4,8 +4,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ALFA3 | Transformamos ideas en codigo que impacta',
-  description: 'ALFA3 es una agencia de desarrollo web que transforma ideas en soluciones digitales de alto impacto con tecnologia de vanguardia e inteligencia artificial.',
+  title: 'ALFA3 | Transformamos ideas en código que impacta',
+  description: 'ALFA3 es una agencia de desarrollo web que transforma ideas en soluciones digitales de alto impacto con tecnología de vanguardia e inteligencia artificial.',
   icons: {
     icon: [
       {
@@ -35,7 +35,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

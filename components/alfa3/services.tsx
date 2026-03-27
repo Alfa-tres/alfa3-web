@@ -14,7 +14,7 @@ const services = [
     icon: Globe,
     title: "Desarrollo Web",
     description:
-      "Sitios web modernos, rapidos y optimizados para SEO. Desde landing pages hasta plataformas complejas con las ultimas tecnologias.",
+      "Sitios web modernos, rápidos y optimizados para SEO. Desde landing pages hasta plataformas complejas con las últimas tecnologías.",
     tags: ["Next.js", "React", "SEO", "Responsive"],
   },
   {
@@ -26,24 +26,24 @@ const services = [
   },
   {
     icon: Gauge,
-    title: "Optimizacion & Performance",
+    title: "Optimización & Performance",
     description:
       "Mejoramos la velocidad y rendimiento de tu sitio web. Core Web Vitals, carga optimizada y experiencia de usuario superior.",
     tags: ["Core Web Vitals", "CDN", "Caching", "Speed"],
   },
   {
     icon: Paintbrush,
-    title: "Rediseno Web",
+    title: "Rediseño Web",
     description:
-      "Transformamos tu sitio web actual en una experiencia moderna y funcional. UI/UX actualizado con mejores practicas.",
-    tags: ["UI/UX", "Branding", "Conversion", "Moderno"],
+      "Transformamos tu sitio web actual en una experiencia moderna y funcional. UI/UX actualizado con mejores prácticas.",
+    tags: ["UI/UX", "Branding", "Conversión", "Moderno"],
   },
   {
     icon: Shield,
     title: "Seguridad Web",
     description:
-      "Proteccion completa para tu sitio web. Auditorias de seguridad, certificados SSL, proteccion contra ataques y backups.",
-    tags: ["SSL", "Firewall", "Auditorias", "Backups"],
+      "Protección completa para tu sitio web. Auditorías de seguridad, certificados SSL, protección contra ataques y backups.",
+    tags: ["SSL", "Firewall", "Auditorías", "Backups"],
   },
 ]
 
@@ -102,7 +102,7 @@ export function Services() {
             Soluciones web de alto impacto
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Desarrollamos proyectos web que combinan diseno, tecnologia de punta
+            Desarrollamos proyectos web que combinan diseño, tecnología de punta
             e inteligencia artificial para impulsar tu negocio.
           </p>
         </div>

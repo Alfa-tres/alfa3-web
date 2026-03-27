@@ -26,7 +26,7 @@ export function Footer() {
             </a>
             <p className="max-w-xs text-center text-sm leading-relaxed md:text-left">
               Transformamos ideas en soluciones digitales de alto impacto con
-              tecnologia de vanguardia.
+              tecnología de vanguardia.
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export function Footer() {
           {/* Right side — branding */}
           <div className="flex flex-col items-center gap-2 md:items-end">
             <p className="font-mono text-xs text-[#4a5568]">
-              {"// Hecho con codigo y pasion"}
+              {"// Hecho con código y pasión"}
             </p>
           </div>
         </div>
