@@ -7,9 +7,10 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 const navLinks = [
-  { label: "Inicio", href: "#inicio" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Nuestra Estrategia", href: "#estrategia" },
+  { label: "¿Cómo lo hacemos?", href: "#como-lo-hacemos" },
+  { label: "Precios", href: "#precios" },
+  { label: "Portafolio", href: "#portafolio" },
 ]
 
 export function Navbar() {

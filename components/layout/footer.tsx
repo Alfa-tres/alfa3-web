@@ -3,9 +3,10 @@
 import Image from "next/image"
 
 const navLinks = [
-  { label: "Inicio", href: "#inicio" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Nuestra Estrategia", href: "#estrategia" },
+  { label: "¿Cómo lo hacemos?", href: "#como-lo-hacemos" },
+  { label: "Precios", href: "#precios" },
+  { label: "Portafolio", href: "#portafolio" },
 ]
 
 export function Footer() {
@@ -45,9 +46,6 @@ export function Footer() {
 
           {/* Right side — branding */}
           <div className="flex flex-col items-center gap-2 md:items-end">
-            <p className="font-mono text-xs text-[#4a5568]">
-              {"// Hecho con código y pasión"}
-            </p>
           </div>
         </div>
 

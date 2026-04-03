@@ -42,7 +42,7 @@ const commandResponses: Record<string, TerminalLine[]> = {
 export function TerminalSimulator() {
   const [lines, setLines] = useState<TerminalLine[]>([
     { type: "info", text: "ALFA3 Development Console v3.0.0" },
-    { type: "output", text: 'Escribe un comando o haz click en los botones:' },
+    { type: "output", text: "Escribe un comando o haz click en los botones:" },
     { type: "output", text: "" },
   ])
   const [isTyping, setIsTyping] = useState(false)
@@ -75,7 +75,6 @@ export function TerminalSimulator() {
         return
       }
 
-      // Handle WhatsApp redirect
       if (cmd === "./contacto") {
         for (let i = 0; i < response.length; i++) {
           await new Promise((r) => setTimeout(r, 300))
@@ -120,7 +119,7 @@ export function TerminalSimulator() {
           <div key={i} className="font-mono text-xs leading-relaxed md:text-sm">
             {line.type === "command" && (
               <span className="text-terminal-accent">
-                <span className="text-[#28c840]">{'>'}</span> {line.text}
+                <span className="text-[#28c840]">{">"}</span> {line.text}
               </span>
             )}
             {line.type === "output" && (
@@ -147,7 +146,7 @@ export function TerminalSimulator() {
 
         {/* Cursor */}
         <div className="flex items-center gap-1 font-mono text-xs md:text-sm">
-          <span className="text-[#28c840]">{'>'}</span>
+          <span className="text-[#28c840]">{">"}</span>
           <span className="text-terminal-accent">{"alfa3@dev:~$"}</span>
           <span className="animate-blink ml-0.5 inline-block h-4 w-2 bg-terminal-accent" />
         </div>

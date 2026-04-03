@@ -63,7 +63,6 @@ export function FloatingParticles() {
         ctx.fill()
       })
 
-      // Draw connections
       particles.forEach((a, i) => {
         particles.slice(i + 1).forEach((b) => {
           const dist = Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2)
