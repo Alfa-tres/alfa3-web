@@ -1,143 +1,75 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
 import { Heart, MessageSquare, Layers } from "lucide-react"
+import { useInView } from "@/hooks/use-in-view"
 
 const reasons = [
   {
     icon: Heart,
     title: "Nacimos para ti",
-    description:
-      "ALFA3 nació de una necesidad real: emprendedores y pequeñas empresas que merecían presencia digital profesional, sin tecnicismos ni presupuestos de corporativo.",
+    description: "ALFA3 nació de una necesidad real: emprendedores y pequeñas empresas que merecían presencia digital profesional, sin tecnicismos ni presupuestos de corporativo.",
   },
   {
     icon: MessageSquare,
     title: "Hablamos tu idioma",
-    description:
-      "Primero entendemos tu negocio, luego aplicamos la tecnología que necesita. Sin términos raros, sin reuniones interminables. Solo soluciones claras.",
+    description: "Primero entendemos tu negocio, luego aplicamos la tecnología que necesita. Sin términos raros, sin reuniones interminables. Solo soluciones claras.",
   },
   {
     icon: Layers,
     title: "A tu escala",
-    description:
-      "Cada proyecto se diseña según las necesidades reales de tu empresa. Sin paquetes genéricos, sin costos ocultos, sin promesas vacías.",
+    description: "Cada proyecto se diseña según las necesidades reales de tu empresa. Sin paquetes genéricos, sin costos ocultos, sin promesas vacías.",
   },
 ]
 
-function ReasonItem({
-  reason,
-  index,
-}: {
-  reason: (typeof reasons)[number]
-  index: number
-}) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  const Icon = reason.icon
-
-  return (
-    <div
-      ref={ref}
-      className={`group flex gap-5 transition-all duration-700 ${
-        visible ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"
-      }`}
-      style={{ transitionDelay: `${index * 150}ms` }}
-    >
-      <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
-        <Icon className="h-5 w-5" />
-      </div>
-      <div>
-        <h3 className="mb-1.5 text-lg font-extrabold text-foreground">{reason.title}</h3>
-        <p className="text-sm leading-relaxed text-muted-foreground">{reason.description}</p>
-      </div>
-    </div>
-  )
-}
-
 export function Why() {
-  const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.1 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
+  const { ref, inView } = useInView(0.1)
 
   return (
-    <section id="por-que-alfa3" className="relative py-24 lg:py-32">
+    <section id="por-que-alfa3" className="relative py-24 lg:py-32" ref={ref}>
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.02] dark:opacity-[0.04]"
-        style={{
-          backgroundImage: `radial-gradient(circle, #438bff 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
-        }}
+        className="pointer-events-none absolute inset-0 opacity-[0.02]"
+        style={{ backgroundImage: `radial-gradient(circle, #438bff 1px, transparent 1px)`, backgroundSize: "40px 40px" }}
         aria-hidden="true"
       />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
 
-          {/* Left — Origin statement */}
-          <div
-            ref={ref}
-            className={`transition-all duration-700 ${visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-          >
+          <div className={`transition-all duration-700 ${inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
             <span className="mb-6 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
               {"// ¿Por qué ALFA3?"}
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance leading-[1.1]">
-              Tecnología al servicio{" "}
-              <span className="text-primary">de tu negocio,</span>{" "}
-              no al revés.
+              Tecnología al servicio{" "}<span className="text-primary">de tu negocio,</span>{" "}no al revés.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              ALFA3 nació porque los emprendedores y las pequeñas empresas
-              merecen soluciones digitales reales — sin tecnicismos que confunden,
-              sin agencias que no entienden el negocio y sin presupuestos
-              pensados para corporativos.
+              ALFA3 nació porque los emprendedores y las pequeñas empresas merecen soluciones digitales reales — sin tecnicismos que confunden, sin agencias que no entienden el negocio y sin presupuestos pensados para corporativos.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              Somos el equipo que habla tu idioma, entiende tus objetivos
-              y los convierte en resultados medibles.
+              Somos el equipo que habla tu idioma, entiende tus objetivos y los convierte en resultados medibles.
             </p>
-
-            {/* Accent line */}
             <div className="mt-8 h-1 w-16 rounded-full bg-primary" />
           </div>
 
-          {/* Right — 3 reasons */}
           <div className="flex flex-col gap-8">
-            {reasons.map((reason, i) => (
-              <ReasonItem key={reason.title} reason={reason} index={i} />
-            ))}
+            {reasons.map((reason, i) => {
+              const Icon = reason.icon
+              return (
+                <div
+                  key={reason.title}
+                  className={`group flex gap-5 transition-all duration-700 ${inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
+                  style={{ transitionDelay: `${i * 150}ms` }}
+                >
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="mb-1.5 text-lg font-extrabold text-foreground">{reason.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{reason.description}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
 
         </div>

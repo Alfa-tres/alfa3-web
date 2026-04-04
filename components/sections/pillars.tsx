@@ -1,45 +1,109 @@
 "use client"
 
+import { useRef, useState, useEffect } from "react"
 import { Code2, Paintbrush, Brain } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 
 const pillars = [
   {
+    step: "01",
     icon: Code2,
     label: "PROGRAMACIÓN",
     title: "Código limpio y escalable",
-    description:
-      "Desde la compra e instalación del dominio, configuración del hosting, hasta la programación web con las mejores tecnologías: Next.js, React, TypeScript.",
+    description: "Desde la compra del dominio y hosting, hasta la programación con las mejores tecnologías: Next.js, React, TypeScript. Nada genérico.",
     bgColor: "bg-primary",
     textColor: "text-primary-foreground",
   },
   {
+    step: "02",
     icon: Paintbrush,
     label: "DISEÑO WEB",
     title: "Experiencias que convierten",
-    description:
-      "Estructura comercial, desarrollo de contenido y diseño web acorde a tu mercado meta. UI/UX pensado para maximizar conversiones.",
+    description: "Estructura comercial, desarrollo de contenido y diseño UI/UX acorde a tu mercado. Cada pixel pensado para maximizar conversiones.",
     bgColor: "bg-foreground",
     textColor: "text-background",
   },
   {
+    step: "03",
     icon: Brain,
     label: "INTELIGENCIA ARTIFICIAL",
     title: "IA integrada a tu negocio",
-    description:
-      "Automatización de procesos, chatbots inteligentes, análisis predictivo y optimización continua con las herramientas de IA más avanzadas.",
+    description: "Chatbots inteligentes, automatización de procesos y análisis predictivo. IA desde el inicio, no como accesorio de último momento.",
     bgColor: "bg-gradient-to-br from-[#1a1a2e] to-[#0f3460]",
     textColor: "text-white",
   },
 ]
 
-export function Pillars() {
-  const { ref, inView } = useInView(0.15)
+function PillarCard({ pillar, index }: { pillar: typeof pillars[number]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setVisible(true), index * 150)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [index])
+
+  const Icon = pillar.icon
 
   return (
-    <section id="como-lo-hacemos" className="relative py-24 lg:py-32" ref={ref}>
+    <div
+      ref={ref}
+      className={`group relative overflow-hidden rounded-2xl ${pillar.bgColor} ${pillar.textColor} p-8 transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+      }`}
+    >
+      {/* Decorative circles */}
+      <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 transition-transform duration-500 group-hover:scale-150" />
+      <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-white/5" />
+
+
+      <div className="relative z-10">
+
+        {/* Icon */}
+        <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+          <Icon className="h-7 w-7" />
+        </div>
+
+        {/* Label */}
+        <span className="mb-2 block font-mono text-[11px] font-bold tracking-widest opacity-60">
+          {pillar.label}
+        </span>
+
+        {/* Title */}
+        <h3 className="mb-3 text-xl font-extrabold leading-tight">{pillar.title}</h3>
+
+        {/* Divider */}
+        <div className="mb-4 h-px w-10 bg-current opacity-20 transition-all duration-500 group-hover:w-20 group-hover:opacity-40" />
+
+        {/* Description */}
+        <p className="text-sm leading-relaxed opacity-80">{pillar.description}</p>
+      </div>
+    </div>
+  )
+}
+
+export function Pillars() {
+  const { ref: headerRef, inView: headerVisible } = useInView(0.3)
+
+  return (
+    <section id="como-lo-hacemos" className="relative py-24 lg:py-32">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-16 text-center">
+
+        <div
+          ref={headerRef}
+          className={`mb-16 text-center transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// ¿Cómo lo hacemos?"}
           </span>
@@ -47,43 +111,32 @@ export function Pillars() {
             Nos encargamos de <span className="text-primary">todo</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            No solo diseñamos páginas web. Creamos soluciones digitales completas
-            que integran código, diseño e inteligencia artificial.
+            No solo diseñamos páginas web. Creamos soluciones digitales completas que integran código, diseño e inteligencia artificial.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {pillars.map((pillar, i) => {
-            const Icon = pillar.icon
-            return (
-              <div
-                key={pillar.label}
-                className={`group relative overflow-hidden rounded-2xl ${pillar.bgColor} ${pillar.textColor} p-8 transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl ${
-                  inView ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-                }`}
-                style={{ transitionDelay: `${i * 150}ms` }}
-              >
-                <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 transition-transform duration-500 group-hover:scale-150" />
-                <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-white/5" />
-
-                <div className="relative z-10">
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm">
-                    <Icon className="h-7 w-7" />
-                  </div>
-                  <span className="mb-2 block font-mono text-[11px] font-bold tracking-widest opacity-70">
-                    {pillar.label}
-                  </span>
-                  <h3 className="mb-3 text-xl font-extrabold leading-tight">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed opacity-85">
-                    {pillar.description}
-                  </p>
+        {/* Cards + connector line */}
+        <div className="relative">
+          {/* Connecting line between cards — desktop only */}
+          <div className="pointer-events-none absolute left-0 right-0 top-[52px] hidden h-px md:block" aria-hidden="true">
+            <div className="mx-auto grid max-w-7xl grid-cols-3 px-6 lg:px-8">
+              {[0, 1, 2].map((i) => (
+                <div key={i} className="relative flex items-center justify-center">
+                  {i < 2 && (
+                    <div className="absolute left-1/2 top-0 h-px w-full border-t border-dashed border-border/60" />
+                  )}
                 </div>
-              </div>
-            )
-          })}
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {pillars.map((pillar, i) => (
+              <PillarCard key={pillar.label} pillar={pillar} index={i} />
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   )

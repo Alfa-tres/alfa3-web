@@ -88,7 +88,7 @@ export function Hero() {
           >
             <Sparkles className="h-3.5 w-3.5 text-primary" />
             <span className="font-mono text-xs text-primary">
-              +50 negocios en Monterrey ya lo lograron
+              +50 negocios ya lo lograron
             </span>
           </div>
 

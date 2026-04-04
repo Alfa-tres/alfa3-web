@@ -4,48 +4,12 @@ import { ExternalLink, Globe } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 
 const projects = [
-  {
-    title: "MedCenter Pro",
-    category: "Sitio Empresarial",
-    description: "Clínica médica con sistema de citas y blog de salud",
-    gradient: "from-[#438bff] to-[#2b6fdb]",
-    tags: ["Next.js", "SEO", "Blog"],
-  },
-  {
-    title: "AutoParts MTY",
-    category: "E-commerce",
-    description: "Tienda de autopartes con catálogo de +2,000 productos",
-    gradient: "from-[#2b6fdb] to-[#1a4fa0]",
-    tags: ["E-commerce", "Pagos", "Inventario"],
-  },
-  {
-    title: "Constructora Regio",
-    category: "Landing Page",
-    description: "Landing de captación de leads para desarrollos inmobiliarios",
-    gradient: "from-[#0f3460] to-[#1a1a2e]",
-    tags: ["Landing", "CRM", "Conversión"],
-  },
-  {
-    title: "Fitness Hub",
-    category: "One Page",
-    description: "Gimnasio con sistema de membresías y horarios en línea",
-    gradient: "from-[#438bff] to-[#6aa8ff]",
-    tags: ["One Page", "Responsive", "Booking"],
-  },
-  {
-    title: "Despacho Legal NL",
-    category: "Sitio Empresarial",
-    description: "Despacho de abogados con portal de clientes y blog legal",
-    gradient: "from-[#1a1a2e] to-[#438bff]",
-    tags: ["Multi-página", "Portal", "CMS"],
-  },
-  {
-    title: "Sabor Norteño",
-    category: "Landing Page",
-    description: "Restaurante con menú digital y reservaciones en línea",
-    gradient: "from-[#2b6fdb] to-[#438bff]",
-    tags: ["Landing", "Menú digital", "WhatsApp"],
-  },
+  { title: "MedCenter Pro", category: "Sitio Empresarial", description: "Clínica médica con sistema de citas y blog de salud", gradient: "from-[#438bff] to-[#2b6fdb]", tags: ["Next.js", "SEO", "Blog"] },
+  { title: "AutoParts MTY", category: "E-commerce", description: "Tienda de autopartes con catálogo de +2,000 productos", gradient: "from-[#2b6fdb] to-[#1a4fa0]", tags: ["E-commerce", "Pagos", "Inventario"] },
+  { title: "Constructora Regio", category: "Landing Page", description: "Landing de captación de leads para desarrollos inmobiliarios", gradient: "from-[#0f3460] to-[#1a1a2e]", tags: ["Landing", "CRM", "Conversión"] },
+  { title: "Fitness Hub", category: "One Page", description: "Gimnasio con sistema de membresías y horarios en línea", gradient: "from-[#438bff] to-[#6aa8ff]", tags: ["One Page", "Responsive", "Booking"] },
+  { title: "Despacho Legal NL", category: "Sitio Empresarial", description: "Despacho de abogados con portal de clientes y blog legal", gradient: "from-[#1a1a2e] to-[#438bff]", tags: ["Multi-página", "Portal", "CMS"] },
+  { title: "Sabor Norteño", category: "Landing Page", description: "Restaurante con menú digital y reservaciones en línea", gradient: "from-[#2b6fdb] to-[#438bff]", tags: ["Landing", "Menú digital", "WhatsApp"] },
 ]
 
 export function Portfolio() {
@@ -54,7 +18,7 @@ export function Portfolio() {
   return (
     <section id="portafolio" className="relative py-24 lg:py-32" ref={ref}>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-16 text-center">
+        <div className={`mb-16 text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Portafolio"}
           </span>
@@ -62,8 +26,7 @@ export function Portfolio() {
             Proyectos que <span className="text-primary">hablan por sí solos</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Cada proyecto es una historia de colaboración. Aquí algunos de los sitios
-            web que hemos creado para negocios en Monterrey y la región.
+            Cada proyecto es una historia de colaboración. Aquí algunos de los sitios web que hemos creado para negocios en Monterrey y la región.
           </p>
         </div>
 
@@ -72,7 +35,7 @@ export function Portfolio() {
             <div
               key={project.title}
               className={`group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-700 hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 ${
-                inView ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
@@ -95,7 +58,6 @@ export function Portfolio() {
                     <div className="h-8 rounded-sm bg-white/10" />
                     <div className="h-8 rounded-sm bg-white/10" />
                   </div>
-                  <div className="mt-1 h-2 w-24 rounded-sm bg-white/10" />
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
@@ -104,7 +66,6 @@ export function Portfolio() {
                   </div>
                 </div>
               </div>
-
               <div className="p-5">
                 <div className="mb-1 flex items-center gap-2">
                   <Globe className="h-3.5 w-3.5 text-primary" />
@@ -114,10 +75,7 @@ export function Portfolio() {
                 <p className="mb-3 text-sm text-muted-foreground">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-primary/15 bg-primary/5 px-2 py-0.5 font-mono text-[10px] font-medium text-primary"
-                    >
+                    <span key={tag} className="rounded-full border border-primary/15 bg-primary/5 px-2 py-0.5 font-mono text-[10px] font-medium text-primary">
                       {tag}
                     </span>
                   ))}

@@ -9,14 +9,7 @@ const plans = [
     price: "4,900",
     period: "pago único",
     description: "Ideal para campañas, lanzamientos y captación de leads.",
-    features: [
-      "Diseño personalizado",
-      "Responsive (móvil y desktop)",
-      "Formulario de contacto",
-      "Optimización SEO básica",
-      "Entrega en 5-7 días",
-      "1 revisión incluida",
-    ],
+    features: ["Diseño personalizado", "Responsive (móvil y desktop)", "Formulario de contacto", "Optimización SEO básica", "Entrega en 5-7 días", "1 revisión incluida"],
     popular: false,
   },
   {
@@ -24,14 +17,7 @@ const plans = [
     price: "7,900",
     period: "pago único",
     description: "Tu empresa completa en una experiencia vertical moderna.",
-    features: [
-      "Todo lo de Landing Page",
-      "Hasta 5 secciones",
-      "Animaciones y transiciones",
-      "Integración WhatsApp",
-      "Optimización de velocidad",
-      "2 revisiones incluidas",
-    ],
+    features: ["Todo lo de Landing Page", "Hasta 5 secciones", "Animaciones y transiciones", "Integración WhatsApp", "Optimización de velocidad", "2 revisiones incluidas"],
     popular: true,
   },
   {
@@ -39,32 +25,16 @@ const plans = [
     price: "15,900",
     period: "pago único",
     description: "Sitio multi-página completo para empresas establecidas.",
-    features: [
-      "Todo lo de One Page",
-      "Hasta 8 páginas",
-      "Blog / Noticias",
-      "Panel administrable",
-      "SEO avanzado",
-      "3 revisiones incluidas",
-    ],
+    features: ["Todo lo de One Page", "Hasta 8 páginas", "Blog / Noticias", "Panel administrable", "SEO avanzado", "3 revisiones incluidas"],
     popular: false,
-    cta: "Cotizar Empresarial",
   },
   {
     name: "E-commerce",
     price: "6,900",
     period: "/ mes",
     description: "Tu tienda en línea con todo para vender.",
-    features: [
-      "Catálogo de productos",
-      "Pasarela de pagos",
-      "Carrito de compras",
-      "Gestión de inventario",
-      "Panel de administración",
-      "Soporte mensual incluido",
-    ],
+    features: ["Catálogo de productos", "Pasarela de pagos", "Carrito de compras", "Gestión de inventario", "Panel de administración", "Soporte mensual incluido"],
     popular: false,
-    cta: "Cotizar E-commerce",
   },
 ]
 
@@ -74,7 +44,7 @@ export function Pricing() {
   return (
     <section id="precios" className="relative overflow-hidden bg-muted py-24 lg:py-32" ref={ref}>
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-16 text-center">
+        <div className={`mb-16 text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Inversión"}
           </span>
@@ -82,8 +52,7 @@ export function Pricing() {
             Precios <span className="text-primary">transparentes</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Sin letras chiquitas. Conoce nuestros planes y elige el que mejor
-            se adapte a las necesidades de tu negocio.
+            Sin letras chiquitas. Conoce nuestros planes y elige el que mejor se adapte a las necesidades de tu negocio.
           </p>
         </div>
 
@@ -92,10 +61,8 @@ export function Pricing() {
             <div
               key={plan.name}
               className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-card transition-all duration-700 hover:shadow-xl ${
-                plan.popular
-                  ? "border-primary shadow-lg shadow-primary/10 scale-[1.02]"
-                  : "border-border hover:border-primary/30"
-              } ${inView ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}
+                plan.popular ? "border-primary shadow-lg shadow-primary/10 scale-[1.02]" : "border-border hover:border-primary/30"
+              } ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               {plan.popular && (
@@ -104,11 +71,9 @@ export function Pricing() {
                   <span className="font-mono text-xs font-bold tracking-wider">MÁS POPULAR</span>
                 </div>
               )}
-
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-lg font-extrabold text-card-foreground">{plan.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{plan.description}</p>
-
                 <div className="mt-6 mb-6">
                   <span className="text-sm text-muted-foreground">desde</span>
                   <div className="flex items-baseline gap-1">
@@ -116,7 +81,6 @@ export function Pricing() {
                     <span className="text-sm text-muted-foreground">{plan.period}</span>
                   </div>
                 </div>
-
                 <ul className="flex flex-1 flex-col gap-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -132,7 +96,6 @@ export function Pricing() {
 
         <p className="mt-8 text-center text-xs text-muted-foreground/60">
           * Los precios son en MXN y pueden variar según los requerimientos específicos de cada proyecto.
-          Contáctanos para una cotización personalizada.
         </p>
       </div>
     </section>
