@@ -28,20 +28,24 @@ export function Navbar() {
         {/* Logo */}
         <a href="#inicio" className="flex-shrink-0">
           <Image
-            src="/original texto negro.png"
-            alt="ALFA3"
+            src="/alfa3-logo-dark.png"
+            alt="ALFA3 — Agencia de diseño web en Monterrey"
             width={200}
             height={60}
+            sizes="(max-width: 768px) 160px, 200px"
             className="h-12 w-auto block dark:hidden"
             priority
+            fetchPriority="high"
           />
           <Image
-            src="/original texto blanco.png"
-            alt="ALFA3"
+            src="/alfa3-logo-light.png"
+            alt="ALFA3 — Agencia de diseño web en Monterrey"
             width={200}
             height={60}
+            sizes="(max-width: 768px) 160px, 200px"
             className="h-12 w-auto hidden dark:block"
             priority
+            fetchPriority="high"
           />
         </a>
 

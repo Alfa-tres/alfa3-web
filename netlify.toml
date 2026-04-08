@@ -4,3 +4,75 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Redirects SEO — fuerzan www canónico y HTTPS
+# IMPORTANTE: estos dominios deben estar agregados en Netlify → Domain Management
+# ──────────────────────────────────────────────────────────────────────────────
+
+# alfatres.com.mx → www.alfatres.com (301)
+[[redirects]]
+  from    = "https://alfatres.com.mx/*"
+  to      = "https://www.alfatres.com/:splat"
+  status  = 301
+  force   = true
+
+# alfatres.mx → www.alfatres.com (301)
+[[redirects]]
+  from    = "https://alfatres.mx/*"
+  to      = "https://www.alfatres.com/:splat"
+  status  = 301
+  force   = true
+
+# alfatres.com (sin www) → www.alfatres.com (301)
+[[redirects]]
+  from    = "https://alfatres.com/*"
+  to      = "https://www.alfatres.com/:splat"
+  status  = 301
+  force   = true
+
+# HTTP → HTTPS (Netlify lo hace automáticamente, pero lo declaramos explícitamente)
+[[redirects]]
+  from    = "http://alfatres.com/*"
+  to      = "https://www.alfatres.com/:splat"
+  status  = 301
+  force   = true
+
+[[redirects]]
+  from    = "http://www.alfatres.com/*"
+  to      = "https://www.alfatres.com/:splat"
+  status  = 301
+  force   = true
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Headers de seguridad y caché (complementan los de next.config.mjs)
+# ──────────────────────────────────────────────────────────────────────────────
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options             = "SAMEORIGIN"
+    X-Content-Type-Options      = "nosniff"
+    Referrer-Policy             = "strict-origin-when-cross-origin"
+    Permissions-Policy          = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security   = "max-age=31536000; includeSubDomains; preload"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"

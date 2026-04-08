@@ -18,10 +18,11 @@ export function Footer() {
           <div className="flex flex-col items-center gap-4 md:items-start">
             <a href="#inicio">
               <Image
-                src="/original texto blanco.png"
-                alt="ALFA3"
+                src="/alfa3-logo-light.png"
+                alt="ALFA3 — Agencia de diseño web en Monterrey"
                 width={160}
                 height={48}
+                sizes="160px"
                 className="h-10 w-auto"
               />
             </a>
