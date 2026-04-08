@@ -38,7 +38,7 @@ export function Hero() {
             className="animate-fade-up font-extrabold leading-[1.1] tracking-tight text-[clamp(2rem,6vw,5rem)]"
             style={{ animationDelay: "0.1s" }}
           >
-            <span className="block whitespace-nowrap text-foreground">Tu marca no necesita una web.</span>
+            <span className="block text-foreground">Tu marca no necesita una web.</span>
             <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Necesita DOMINAR.
               <span className="animate-blink ml-2 inline-block h-[0.8em] w-[4px] translate-y-[0.05em] bg-primary" />
