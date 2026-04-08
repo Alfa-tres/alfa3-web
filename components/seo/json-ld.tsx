@@ -1,6 +1,23 @@
 import { SEO } from "@/lib/seo"
+import { faqItems } from "@/components/sections/faq"
 
 type JsonLdData = Record<string, unknown>
+
+/* ──────────────────────────────────────────────────────────────────────────
+   FAQPage schema — generado desde los mismos datos del componente FAQ
+   ────────────────────────────────────────────────────────────────────────── */
+export const faqPageJsonLd: JsonLdData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+}
 
 /** Renderiza un bloque <script type="application/ld+json"> en el head. */
 export function JsonLd({ data }: { data: JsonLdData | JsonLdData[] }) {

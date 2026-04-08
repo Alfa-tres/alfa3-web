@@ -32,9 +32,19 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-[0px] pb-32 lg:px-8 lg:py-40">
         <div className="flex flex-col items-center text-center">
 
-
-          {/* Headline — banner-size, gancho provocador */}
+          {/* H1 SEO — visible y con keyword geo */}
           <h1
+            className="animate-fade-up mb-4 flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2"
+            style={{ animationDelay: "0s" }}
+          >
+            <MapPin className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+            <span className="font-mono text-xs font-medium text-primary">
+              Agencia de Diseño Web en Monterrey, Nuevo León
+            </span>
+          </h1>
+
+          {/* Gancho creativo — H2 visual */}
+          <h2
             className="animate-fade-up font-extrabold leading-[1.1] tracking-tight text-[clamp(2rem,6vw,5rem)]"
             style={{ animationDelay: "0.1s" }}
           >
@@ -43,14 +53,14 @@ export function Hero() {
               Necesita DOMINAR.
               <span className="animate-blink ml-2 inline-block h-[0.8em] w-[4px] translate-y-[0.05em] bg-primary" />
             </span>
-          </h1>
+          </h2>
 
           {/* Subtext */}
           <p
             className="animate-fade-up mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground md:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
-            No sitios genéricos — experiencias que convierten.
+            No sitios genéricos — experiencias que convierten en Monterrey y todo Nuevo León.
           </p>
 
           {/* CTAs */}

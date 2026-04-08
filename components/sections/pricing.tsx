@@ -49,10 +49,10 @@ export function Pricing() {
             {"// Inversión"}
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
-            Precios <span className="text-primary">transparentes</span>
+            Precios de páginas web en Monterrey{" "}<span className="text-primary">transparentes</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Sin letras chiquitas. Conoce nuestros planes y elige el que mejor se adapte a las necesidades de tu negocio.
+            Sin letras chiquitas. Conoce nuestros planes en pesos mexicanos y elige el que mejor se adapte a las necesidades de tu negocio en Nuevo León.
           </p>
         </div>
 

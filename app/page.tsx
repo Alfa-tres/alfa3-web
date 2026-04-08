@@ -11,8 +11,9 @@ import { Pricing } from "@/components/sections/pricing"
 import { Strategy } from "@/components/sections/strategy"
 import { Portfolio } from "@/components/sections/portfolio"
 import { Why } from "@/components/sections/why"
+import { FAQ } from "@/components/sections/faq"
 import { Cta } from "@/components/sections/cta"
-import { JsonLd, localBusinessJsonLd } from "@/components/seo/json-ld"
+import { JsonLd, localBusinessJsonLd, faqPageJsonLd } from "@/components/seo/json-ld"
 import { SEO } from "@/lib/seo"
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       <JsonLd data={localBusinessJsonLd} />
+      <JsonLd data={faqPageJsonLd} />
       <Navbar />
       <Hero />
       <BeforeAfter />
@@ -36,6 +38,7 @@ export default function HomePage() {
       <Strategy />
       <Portfolio />
       <Why />
+      <FAQ />
       <Cta />
       <Footer />
     </main>

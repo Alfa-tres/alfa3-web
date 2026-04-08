@@ -40,10 +40,10 @@ export function Why() {
               {"// ¿Por qué ALFA3?"}
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance leading-[1.1]">
-              Tecnología al servicio{" "}<span className="text-primary">de tu negocio,</span>{" "}no al revés.
+              Tecnología al servicio{" "}<span className="text-primary">de tu negocio en Monterrey,</span>{" "}no al revés.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              ALFA3 nació porque los emprendedores y las pequeñas empresas merecen soluciones digitales reales — sin tecnicismos que confunden, sin agencias que no entienden el negocio y sin presupuestos pensados para corporativos.
+              ALFA3 es una agencia de desarrollo web local en Monterrey, Nuevo León. Nacimos porque los emprendedores y las pequeñas empresas merecen soluciones digitales reales — sin tecnicismos que confunden, sin agencias que no entienden el negocio y sin presupuestos pensados para corporativos.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground lg:text-lg">
               Somos el equipo que habla tu idioma, entiende tus objetivos y los convierte en resultados medibles.

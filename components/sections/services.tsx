@@ -66,10 +66,10 @@ export function Services() {
             {"// Nuestros Servicios"}
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl text-balance">
-            Todo lo que tu negocio{" "}<span className="text-primary">necesita para dominar</span>
+            Todo lo que tu negocio{" "}<span className="text-primary">necesita para dominar en Monterrey</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Desde el diseño hasta la automatización con IA — cubrimos cada aspecto de tu presencia digital.
+            Desde el diseño hasta la automatización con IA — cubrimos cada aspecto de tu presencia digital en Monterrey, Nuevo León y todo México.
           </p>
         </div>
       </div>

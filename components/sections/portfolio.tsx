@@ -26,7 +26,7 @@ export function Portfolio() {
             Proyectos que <span className="text-primary">hablan por sí solos</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Cada proyecto es una historia de colaboración. Aquí algunos de los sitios web que hemos creado para negocios en Monterrey y la región.
+            Cada proyecto es una historia de colaboración. Aquí algunos de los sitios web que hemos creado para empresas en Monterrey, Nuevo León y el área metropolitana.
           </p>
         </div>
 
@@ -59,7 +59,10 @@ export function Portfolio() {
                     <div className="h-8 rounded-sm bg-white/10" />
                   </div>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <div
+                  className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  aria-label={`Ver proyecto: ${project.title} — ${project.category} en Monterrey`}
+                >
                   <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
                     <ExternalLink className="h-4 w-4 text-white" />
                     <span className="text-sm font-medium text-white">Ver proyecto</span>
