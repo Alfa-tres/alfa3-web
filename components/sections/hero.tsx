@@ -29,13 +29,13 @@ export function Hero() {
 
       <FloatingParticles />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-32 lg:px-8 lg:py-40">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-[0px] pb-32 lg:px-8 lg:py-40">
         <div className="flex flex-col items-center text-center">
 
 
           {/* Headline — banner-size, gancho provocador */}
           <h1
-            className="animate-fade-up font-extrabold leading-[1.1] tracking-tight text-[clamp(1.1rem,4.2vw,5rem)]"
+            className="animate-fade-up font-extrabold leading-[1.1] tracking-tight text-[clamp(2rem,6vw,5rem)]"
             style={{ animationDelay: "0.1s" }}
           >
             <span className="block whitespace-nowrap text-foreground">Tu marca no necesita una web.</span>
