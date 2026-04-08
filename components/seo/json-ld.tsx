@@ -125,50 +125,50 @@ export const localBusinessJsonLd: JsonLdData = {
     itemListElement: [
       {
         "@type": "Offer",
-        name: "Landing Page",
+        name: "ALFA",
         price: "4900",
         priceCurrency: "MXN",
         itemOffered: {
           "@type": "Service",
-          name: "Diseño de Landing Page en Monterrey",
+          name: "Plan ALFA — Diseño Web Fundacional en Monterrey",
           description:
-            "Página de aterrizaje profesional para captación de leads y conversiones. Diseño personalizado, responsive y optimizado para SEO.",
+            "El fundamento perfecto para lanzamientos rápidos. Página de aterrizaje profesional con diseño personalizado, responsive y optimizado para SEO. Entrega en 5-7 días.",
         },
       },
       {
         "@type": "Offer",
-        name: "One Page",
+        name: "BETA",
         price: "7900",
         priceCurrency: "MXN",
         itemOffered: {
           "@type": "Service",
-          name: "Sitio Web One Page Monterrey",
+          name: "Plan BETA — Sitio Web Moderno en Monterrey",
           description:
-            "Tu empresa completa en una experiencia vertical moderna con animaciones, integración WhatsApp y hasta 5 secciones.",
+            "La evolución. Tu empresa completa en una experiencia vertical moderna con hasta 5 secciones, animaciones, integración WhatsApp y optimización de velocidad.",
         },
       },
       {
         "@type": "Offer",
-        name: "Sitio Empresarial",
+        name: "GAMMA",
         price: "15900",
         priceCurrency: "MXN",
         itemOffered: {
           "@type": "Service",
-          name: "Diseño Web Empresarial Monterrey",
+          name: "Plan GAMMA — Sitio Web Empresarial en Monterrey",
           description:
-            "Sitio multi-página completo con hasta 8 páginas, blog, panel administrable y SEO avanzado.",
+            "La dominación. Sitio multi-página completo con hasta 8 páginas, blog, panel administrable y SEO avanzado para presencia empresarial total.",
         },
       },
       {
         "@type": "Offer",
-        name: "E-commerce",
+        name: "DELTA",
         price: "6900",
         priceCurrency: "MXN",
         itemOffered: {
           "@type": "Service",
-          name: "Tienda en Línea Monterrey",
+          name: "Plan DELTA — Tienda en Línea Monterrey",
           description:
-            "Tienda en línea con catálogo, carrito de compras, pasarela de pagos y gestión de inventario.",
+            "El siguiente paso. Tu tienda en línea operativa 24/7 con catálogo, pasarela de pagos, gestión de inventario y panel de administración.",
         },
       },
       {
