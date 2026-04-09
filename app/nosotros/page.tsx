@@ -7,12 +7,12 @@ import { SEO } from "@/lib/seo"
 import { MessageCircle, ArrowRight, Code2, Zap, Heart } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Nosotros — Quiénes Somos | ALFA3 Agencia Web Monterrey",
+  title: { absolute: "Nosotros — Agencia Web en Monterrey | ALFA3" },
   description:
     "ALFA3 es una agencia de diseño y desarrollo web fundada en Monterrey, Nuevo León. Dos co-fundadores apasionados por la tecnología y el impacto real en negocios regiomontanos.",
   alternates: { canonical: `${SEO.siteUrl}/nosotros` },
   openGraph: {
-    title: "Quiénes Somos | ALFA3 — Agencia Web Monterrey",
+    title: "Nosotros — Agencia Web en Monterrey | ALFA3",
     description: "La historia detrás de ALFA3. Una agencia web nacida en Monterrey para ayudar a negocios regiomontanos a crecer en línea.",
     url: `${SEO.siteUrl}/nosotros`,
   },

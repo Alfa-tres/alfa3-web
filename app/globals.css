@@ -3,46 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─── Tipografía Grift ─── */
-@font-face {
-  font-family: 'Grift';
-  src: url('/fonts/Grift-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Grift';
-  src: url('/fonts/Grift-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Grift';
-  src: url('/fonts/Grift-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Grift';
-  src: url('/fonts/Grift-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Grift';
-  src: url('/fonts/Grift-ExtraBold.woff2') format('woff2');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
+/* ─── Tipografía ───
+   La fuente Grift se carga vía next/font/local en app/fonts.ts
+   y expone la variable CSS --font-grift aplicada en <html>. */
 
 :root {
   --background: #ffffff;
@@ -122,8 +85,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Grift', system-ui, sans-serif;
-  --font-heading: 'Grift', system-ui, sans-serif;
+  --font-sans: var(--font-grift), system-ui, sans-serif;
+  --font-heading: var(--font-grift), system-ui, sans-serif;
   --font-mono: 'Fira Code', 'Cascadia Code', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -171,12 +134,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Grift', system-ui, sans-serif;
+    @apply bg-background text-foreground font-sans;
     font-weight: 400;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Grift', system-ui, sans-serif;
+    @apply font-sans;
     font-weight: 800;
   }
 }

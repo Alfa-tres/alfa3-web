@@ -7,12 +7,12 @@ import { SEO } from "@/lib/seo"
 import { Check, MessageCircle, Target, Zap, TrendingUp } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Landing Pages en Monterrey — Más Leads, Más Ventas",
+  title: { absolute: "Landing Pages en Monterrey — Más Leads | ALFA3" },
   description:
     "Diseño de landing pages en Monterrey, Nuevo León. Páginas de aterrizaje de alta conversión para campañas de Google Ads, Meta Ads y redes sociales. Resultados desde el primer día.",
   alternates: { canonical: `${SEO.siteUrl}/servicios/landing-page-monterrey` },
   openGraph: {
-    title: "Landing Pages en Monterrey | ALFA3",
+    title: "Landing Pages en Monterrey — Más Leads | ALFA3",
     description: "Landing pages de alta conversión en Monterrey. Diseñadas para campañas pagadas y captación de leads.",
     url: `${SEO.siteUrl}/servicios/landing-page-monterrey`,
   },

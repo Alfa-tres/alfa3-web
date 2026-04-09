@@ -11,14 +11,14 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Servicios de Diseño y Desarrollo Web en Monterrey",
+  title: { absolute: "Servicios de Diseño Web en Monterrey | ALFA3" },
   description:
     "Servicios completos de diseño web, desarrollo, SEO, e-commerce e inteligencia artificial en Monterrey, Nuevo León. Soluciones a medida para empresas en todo el mercado regiomontano.",
   alternates: {
     canonical: `${SEO.siteUrl}/servicios`,
   },
   openGraph: {
-    title: "Servicios de Diseño y Desarrollo Web en Monterrey | ALFA3",
+    title: "Servicios de Diseño Web en Monterrey | ALFA3",
     description:
       "Diseño web, e-commerce, SEO e IA para empresas en Monterrey y Nuevo León. Tecnología moderna a medida.",
     url: `${SEO.siteUrl}/servicios`,

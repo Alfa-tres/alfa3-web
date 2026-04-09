@@ -7,12 +7,12 @@ import { SEO } from "@/lib/seo"
 import { MessageCircle, ExternalLink, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Portafolio — Sitios Web que Hemos Desarrollado | ALFA3",
+  title: { absolute: "Portafolio de Sitios Web en Monterrey | ALFA3" },
   description:
     "Portafolio de proyectos de diseño y desarrollo web de ALFA3 en Monterrey, Nuevo León. Sitios, tiendas en línea y landing pages para negocios regiomontanos.",
   alternates: { canonical: `${SEO.siteUrl}/portafolio` },
   openGraph: {
-    title: "Portafolio de Proyectos Web | ALFA3 Monterrey",
+    title: "Portafolio de Sitios Web en Monterrey | ALFA3",
     description: "Proyectos de diseño web desarrollados por ALFA3 en Monterrey, NL. Sitios rápidos, modernos y enfocados en conversión.",
     url: `${SEO.siteUrl}/portafolio`,
   },

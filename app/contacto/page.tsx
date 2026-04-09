@@ -7,12 +7,12 @@ import { SEO } from "@/lib/seo"
 import { MessageCircle, Mail, MapPin, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Contacto — Agencia Web en Monterrey | ALFA3",
+  title: { absolute: "Contacto — Cotiza tu Web en Monterrey | ALFA3" },
   description:
     "Contacta a ALFA3, agencia de diseño web en Monterrey, Nuevo León. WhatsApp, correo o formulario. Respondemos en menos de 24 horas. Cotización gratuita.",
   alternates: { canonical: `${SEO.siteUrl}/contacto` },
   openGraph: {
-    title: "Contacto | ALFA3 — Agencia Web Monterrey",
+    title: "Contacto — Cotiza tu Web en Monterrey | ALFA3",
     description: "Contáctanos para cotizar tu sitio web en Monterrey. Respondemos en menos de 24 horas.",
     url: `${SEO.siteUrl}/contacto`,
   },

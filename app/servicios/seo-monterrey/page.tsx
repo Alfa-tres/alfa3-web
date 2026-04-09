@@ -7,12 +7,12 @@ import { SEO } from "@/lib/seo"
 import { Check, MessageCircle, Search, MapPin, BarChart3, Link2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "SEO en Monterrey — Posicionamiento Web en Google Nuevo León",
+  title: { absolute: "SEO en Monterrey — Posicionamiento Google | ALFA3" },
   description:
     "Servicio de SEO en Monterrey, Nuevo León. Posicionamiento en Google para negocios regiomontanos. SEO local, técnico y de contenidos. Más tráfico orgánico sin pagar por clic.",
   alternates: { canonical: `${SEO.siteUrl}/servicios/seo-monterrey` },
   openGraph: {
-    title: "SEO en Monterrey — Posicionamiento Web | ALFA3",
+    title: "SEO en Monterrey — Posicionamiento Google | ALFA3",
     description: "SEO local y técnico en Monterrey. Aparece primero en Google cuando tus clientes en Nuevo León te buscan.",
     url: `${SEO.siteUrl}/servicios/seo-monterrey`,
   },

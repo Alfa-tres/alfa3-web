@@ -7,7 +7,7 @@ import { SEO } from "@/lib/seo"
 import { Check, Star, MessageCircle, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Precios de Páginas Web en Monterrey — Planes ALFA3",
+  title: { absolute: "Precios de Páginas Web en Monterrey | ALFA3" },
   description:
     "Cuánto cuesta una página web en Monterrey: planes desde $4,900 MXN (ALFA) hasta $15,900 MXN (GAMMA). Precios transparentes en pesos mexicanos, sin mensualidades ocultas.",
   alternates: { canonical: `${SEO.siteUrl}/precios` },

@@ -7,12 +7,12 @@ import { SEO } from "@/lib/seo"
 import { Check, MessageCircle, ShoppingCart, CreditCard, Package, BarChart3 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Tiendas en Línea en Monterrey — Vende 24/7 en Nuevo León",
+  title: { absolute: "Tiendas en Línea en Monterrey 24/7 | ALFA3" },
   description:
     "Desarrollo de tiendas en línea profesionales en Monterrey, Nuevo León. E-commerce con catálogo, carrito, pagos y gestión de inventario. Desde $6,900 MXN/mes con soporte incluido.",
   alternates: { canonical: `${SEO.siteUrl}/servicios/tiendas-en-linea-monterrey` },
   openGraph: {
-    title: "Tiendas en Línea en Monterrey | ALFA3",
+    title: "Tiendas en Línea en Monterrey 24/7 | ALFA3",
     description: "E-commerce profesional en Monterrey. Catálogo, pagos, inventario. Vende 24/7 desde $6,900 MXN/mes.",
     url: `${SEO.siteUrl}/servicios/tiendas-en-linea-monterrey`,
   },

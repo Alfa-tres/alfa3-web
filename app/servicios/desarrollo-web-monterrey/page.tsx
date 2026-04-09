@@ -7,12 +7,12 @@ import { SEO } from "@/lib/seo"
 import { Check, MessageCircle, Zap, Shield, TrendingUp, Code2 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Desarrollo Web en Monterrey — Soluciones a Medida",
+  title: { absolute: "Desarrollo Web en Monterrey a Medida | ALFA3" },
   description:
     "Desarrollo web profesional en Monterrey con Next.js y React. Sitios rápidos, seguros y posicionados en Google. Sin plantillas — código a la medida de tu negocio en Nuevo León.",
   alternates: { canonical: `${SEO.siteUrl}/servicios/desarrollo-web-monterrey` },
   openGraph: {
-    title: "Desarrollo Web en Monterrey — Soluciones a Medida | ALFA3",
+    title: "Desarrollo Web en Monterrey a Medida | ALFA3",
     description:
       "Desarrollo web profesional en Monterrey. Next.js, React, sin plantillas. LCP < 2s, SEO técnico incluido.",
     url: `${SEO.siteUrl}/servicios/desarrollo-web-monterrey`,

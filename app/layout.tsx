@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { JsonLd, organizationJsonLd, webSiteJsonLd } from "@/components/seo/json-ld"
 import { SEO } from "@/lib/seo"
+import { grift } from "./fonts"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -114,23 +115,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es-MX" suppressHydrationWarning>
+    <html lang="es-MX" className={grift.variable} suppressHydrationWarning>
       <head>
-        {/* Preload de la fuente principal (ExtraBold — usada en H1/H2 grandes) */}
-        <link
-          rel="preload"
-          href="/fonts/Grift-ExtraBold.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Grift-Bold.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         <JsonLd data={[organizationJsonLd, webSiteJsonLd]} />
       </head>
       <body className="font-sans antialiased">

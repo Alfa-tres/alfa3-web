@@ -7,7 +7,7 @@ import { SEO } from "@/lib/seo"
 import { Check, MessageCircle, Smartphone, MousePointer2, Palette } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Diseño de Páginas Web en Monterrey que Convierten",
+  title: { absolute: "Diseño de Páginas Web en Monterrey | ALFA3" },
   description:
     "Diseño de páginas web profesional en Monterrey, Nuevo León. UI/UX a medida, 100% responsivo, optimizado para conversión. Más de 50 negocios regiomontanos confían en ALFA3.",
   alternates: { canonical: `${SEO.siteUrl}/servicios/diseno-de-paginas-web-monterrey` },
