@@ -1,7 +1,4 @@
-"use client"
-
 import { ExternalLink, Globe } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const projects = [
   { title: "MedCenter Pro", category: "Sitio Empresarial", description: "Clínica médica con sistema de citas y blog de salud", gradient: "from-[#438bff] to-[#2b6fdb]", tags: ["Next.js", "SEO", "Blog"] },
@@ -13,12 +10,10 @@ const projects = [
 ]
 
 export function Portfolio() {
-  const { ref, inView } = useInView(0.05)
-
   return (
-    <section id="portafolio" className="relative py-24 lg:py-32" ref={ref}>
+    <section id="portafolio" className="relative py-24 lg:py-32">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className={`mb-16 text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="animate-fade-up mb-16 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Portafolio"}
           </span>
@@ -34,10 +29,8 @@ export function Portfolio() {
           {projects.map((project, i) => (
             <div
               key={project.title}
-              className={`group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-700 hover:border-primary/40 hover:shadow-xl hover:-translate-y-1 ${
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              }`}
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card animate-fade-up transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:-translate-y-1"
+              style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className={`relative h-48 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
                 <div className="absolute inset-x-0 top-0 flex items-center gap-1.5 bg-black/20 px-3 py-2 backdrop-blur-sm">

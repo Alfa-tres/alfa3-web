@@ -1,7 +1,4 @@
-"use client"
-
 import { Search, PenTool, Code2, Rocket } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const steps = [
   {
@@ -35,13 +32,11 @@ const steps = [
 ]
 
 export function Strategy() {
-  const { ref, inView } = useInView(0.05)
-
   return (
-    <section id="estrategia" className="relative py-24 lg:py-32" ref={ref}>
+    <section id="estrategia" className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-        <div className={`mb-16 text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="animate-fade-up mb-16 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Nuestra Estrategia"}
           </span>
@@ -59,10 +54,8 @@ export function Strategy() {
             return (
               <div
                 key={step.number}
-                className={`group grid grid-cols-1 gap-6 py-10 transition-all duration-700 lg:grid-cols-[140px_1fr_1fr] lg:gap-12 lg:py-14 ${
-                  inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${i * 120}ms` }}
+                className="group grid grid-cols-1 gap-6 py-10 animate-fade-up lg:grid-cols-[140px_1fr_1fr] lg:gap-12 lg:py-14"
+                style={{ animationDelay: `${i * 120}ms` }}
               >
                 <div className="flex items-start lg:justify-end">
                   <span

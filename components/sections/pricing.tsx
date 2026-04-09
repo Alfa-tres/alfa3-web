@@ -1,7 +1,4 @@
-"use client"
-
 import { Check, Star } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const plans = [
   {
@@ -39,12 +36,10 @@ const plans = [
 ]
 
 export function Pricing() {
-  const { ref, inView } = useInView(0.05)
-
   return (
-    <section id="precios" className="relative overflow-hidden bg-muted py-24 lg:py-32" ref={ref}>
+    <section id="precios" className="relative overflow-hidden bg-muted py-24 lg:py-32">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className={`mb-16 text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="animate-fade-up mb-16 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Inversión"}
           </span>
@@ -60,10 +55,10 @@ export function Pricing() {
           {plans.map((plan, i) => (
             <div
               key={plan.name}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-card transition-all duration-700 hover:shadow-xl ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-card animate-fade-up transition-shadow duration-500 hover:shadow-xl ${
                 plan.popular ? "border-primary shadow-lg shadow-primary/10 scale-[1.02]" : "border-border hover:border-primary/30"
-              } ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              }`}
+              style={{ animationDelay: `${i * 100}ms` }}
             >
               {plan.popular && (
                 <div className="flex items-center justify-center gap-1.5 bg-primary px-4 py-2 text-primary-foreground">

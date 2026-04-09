@@ -208,5 +208,22 @@
 }
 
 .animate-fade-up {
-  animation: fade-up 0.6s ease-out forwards;
+  animation: fade-up 0.6s ease-out both;
+}
+
+/* Stagger helpers — usados con .animate-fade-up para entradas escalonadas
+   sin necesidad de IntersectionObserver / useState. */
+.animate-fade-up-delay-1 { animation: fade-up 0.6s ease-out 0.1s both; }
+.animate-fade-up-delay-2 { animation: fade-up 0.6s ease-out 0.2s both; }
+.animate-fade-up-delay-3 { animation: fade-up 0.6s ease-out 0.3s both; }
+.animate-fade-up-delay-4 { animation: fade-up 0.6s ease-out 0.4s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-delay-1,
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3,
+  .animate-fade-up-delay-4 {
+    animation: none;
+  }
 }

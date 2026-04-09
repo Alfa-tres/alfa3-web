@@ -1,8 +1,4 @@
-"use client"
-
-import { useRef, useState, useEffect } from "react"
 import { Code2, Paintbrush, Brain } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const pillars = [
   {
@@ -34,76 +30,12 @@ const pillars = [
   },
 ]
 
-function PillarCard({ pillar, index }: { pillar: typeof pillars[number]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), index * 150)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [index])
-
-  const Icon = pillar.icon
-
-  return (
-    <div
-      ref={ref}
-      className={`group relative overflow-hidden rounded-2xl ${pillar.bgColor} ${pillar.textColor} p-8 transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-    >
-      {/* Decorative circles */}
-      <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 transition-transform duration-500 group-hover:scale-150" />
-      <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-white/5" />
-
-
-      <div className="relative z-10">
-
-        {/* Icon */}
-        <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-          <Icon className="h-7 w-7" />
-        </div>
-
-        {/* Label */}
-        <span className="mb-2 block font-mono text-[11px] font-bold tracking-widest opacity-60">
-          {pillar.label}
-        </span>
-
-        {/* Title */}
-        <h3 className="mb-3 text-xl font-extrabold leading-tight">{pillar.title}</h3>
-
-        {/* Divider */}
-        <div className="mb-4 h-px w-10 bg-current opacity-20 transition-all duration-500 group-hover:w-20 group-hover:opacity-40" />
-
-        {/* Description */}
-        <p className="text-sm leading-relaxed opacity-80">{pillar.description}</p>
-      </div>
-    </div>
-  )
-}
-
 export function Pillars() {
-  const { ref: headerRef, inView: headerVisible } = useInView(0.3)
-
   return (
     <section id="como-lo-hacemos" className="relative py-24 lg:py-32">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
-        <div
-          ref={headerRef}
-          className={`mb-16 text-center transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
+        <div className="animate-fade-up mb-16 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// ¿Cómo lo hacemos?"}
           </span>
@@ -131,9 +63,41 @@ export function Pillars() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {pillars.map((pillar, i) => (
-              <PillarCard key={pillar.label} pillar={pillar} index={i} />
-            ))}
+            {pillars.map((pillar, i) => {
+              const Icon = pillar.icon
+              return (
+                <div
+                  key={pillar.label}
+                  className={`group relative overflow-hidden rounded-2xl animate-fade-up ${pillar.bgColor} ${pillar.textColor} p-8 transition-transform duration-500 hover:scale-[1.02] hover:shadow-2xl`}
+                  style={{ animationDelay: `${i * 150}ms` }}
+                >
+                  {/* Decorative circles */}
+                  <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 transition-transform duration-500 group-hover:scale-150" />
+                  <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-white/5" />
+
+                  <div className="relative z-10">
+                    {/* Icon */}
+                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                      <Icon className="h-7 w-7" />
+                    </div>
+
+                    {/* Label */}
+                    <span className="mb-2 block font-mono text-[11px] font-bold tracking-widest opacity-60">
+                      {pillar.label}
+                    </span>
+
+                    {/* Title */}
+                    <h3 className="mb-3 text-xl font-extrabold leading-tight">{pillar.title}</h3>
+
+                    {/* Divider */}
+                    <div className="mb-4 h-px w-10 bg-current opacity-20 transition-all duration-500 group-hover:w-20 group-hover:opacity-40" />
+
+                    {/* Description */}
+                    <p className="text-sm leading-relaxed opacity-80">{pillar.description}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
 

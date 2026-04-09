@@ -1,7 +1,4 @@
-"use client"
-
 import { Heart, MessageSquare, Layers } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const reasons = [
   {
@@ -22,10 +19,8 @@ const reasons = [
 ]
 
 export function Why() {
-  const { ref, inView } = useInView(0.1)
-
   return (
-    <section id="por-que-alfa3" className="relative py-24 lg:py-32" ref={ref}>
+    <section id="por-que-alfa3" className="relative py-24 lg:py-32">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.02]"
         style={{ backgroundImage: `radial-gradient(circle, #438bff 1px, transparent 1px)`, backgroundSize: "40px 40px" }}
@@ -35,7 +30,7 @@ export function Why() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-24">
 
-          <div className={`transition-all duration-700 ${inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
+          <div className="animate-fade-up">
             <span className="mb-6 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
               {"// ¿Por qué ALFA3?"}
             </span>
@@ -57,8 +52,8 @@ export function Why() {
               return (
                 <div
                   key={reason.title}
-                  className={`group flex gap-5 transition-all duration-700 ${inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
-                  style={{ transitionDelay: `${i * 150}ms` }}
+                  className="group flex gap-5 animate-fade-up"
+                  style={{ animationDelay: `${150 + i * 150}ms` }}
                 >
                   <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
                     <Icon className="h-5 w-5" />

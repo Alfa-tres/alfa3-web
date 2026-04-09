@@ -1,7 +1,4 @@
-"use client"
-
 import { X, Check } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const painPoints = [
   { title: "Bonita pero invisible", desc: "Google no sabe que existes. Sin tráfico, sin clientes." },
@@ -20,10 +17,6 @@ const benefits = [
 ]
 
 export function BeforeAfter() {
-  const { ref: headerRef, inView: headerVisible } = useInView(0.3)
-  const { ref: leftRef, inView: leftVisible } = useInView(0.2)
-  const { ref: rightRef, inView: rightVisible } = useInView(0.2)
-
   return (
     <section id="la-diferencia" className="relative overflow-hidden py-24 lg:py-32">
       <div
@@ -34,10 +27,7 @@ export function BeforeAfter() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Header */}
-        <div
-          ref={headerRef}
-          className={`mb-16 text-center transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
+        <div className="animate-fade-up mb-16 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// La diferencia ALFA3"}
           </span>
@@ -54,10 +44,7 @@ export function BeforeAfter() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
 
             {/* LEFT — Sin ALFA3 */}
-            <div
-              ref={leftRef}
-              className={`relative overflow-hidden bg-foreground p-8 lg:p-12 transition-all duration-700 ${leftVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
-            >
+            <div className="animate-fade-up relative overflow-hidden bg-foreground p-8 lg:p-12">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,80,80,0.08),transparent_60%)]" />
               <div className="relative z-10">
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-3 py-1">
@@ -71,8 +58,8 @@ export function BeforeAfter() {
                   {painPoints.map((point, i) => (
                     <li
                       key={point.title}
-                      className={`flex items-start gap-4 transition-all duration-500 ${leftVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
-                      style={{ transitionDelay: `${100 + i * 80}ms` }}
+                      className="animate-fade-up flex items-start gap-4"
+                      style={{ animationDelay: `${100 + i * 80}ms` }}
                     >
                       <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-500/15">
                         <X className="h-3.5 w-3.5 text-red-400" />
@@ -88,10 +75,7 @@ export function BeforeAfter() {
             </div>
 
             {/* RIGHT — Con ALFA3 */}
-            <div
-              ref={rightRef}
-              className={`relative overflow-hidden bg-primary p-8 lg:p-12 transition-all duration-700 delay-150 ${rightVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
-            >
+            <div className="animate-fade-up-delay-1 relative overflow-hidden bg-primary p-8 lg:p-12">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.12),transparent_60%)]" />
               <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-white/5" />
               <div className="pointer-events-none absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-white/5" />
@@ -107,8 +91,8 @@ export function BeforeAfter() {
                   {benefits.map((benefit, i) => (
                     <li
                       key={benefit.title}
-                      className={`flex items-start gap-4 transition-all duration-500 ${rightVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`}
-                      style={{ transitionDelay: `${100 + i * 80}ms` }}
+                      className="animate-fade-up flex items-start gap-4"
+                      style={{ animationDelay: `${250 + i * 80}ms` }}
                     >
                       <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/15">
                         <Check className="h-3.5 w-3.5 text-white" />

@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { Target, Smartphone, Building2, ShoppingCart, Check, ArrowRight } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const pageTypes = [
   {
@@ -46,8 +45,6 @@ const pageTypes = [
 export function Types() {
   const [active, setActive] = useState(0)
   const [animating, setAnimating] = useState(false)
-  const { ref: headerRef, inView: headerVisible } = useInView(0.3)
-  const { ref: bodyRef, inView: bodyVisible } = useInView(0.1)
 
   const handleSelect = (i: number) => {
     if (i === active) return
@@ -72,10 +69,7 @@ export function Types() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Header */}
-        <div
-          ref={headerRef}
-          className={`mb-16 text-center transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
+        <div className="animate-fade-up mb-16 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Tipos de páginas"}
           </span>
@@ -88,10 +82,7 @@ export function Types() {
         </div>
 
         {/* Selector layout */}
-        <div
-          ref={bodyRef}
-          className={`grid grid-cols-1 gap-4 transition-all duration-700 lg:grid-cols-[300px_1fr] lg:gap-8 ${bodyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-        >
+        <div className="grid grid-cols-1 gap-4 animate-fade-up lg:grid-cols-[300px_1fr] lg:gap-8" style={{ animationDelay: "120ms" }}>
 
           {/* Left — type selector */}
           <div className="flex flex-row gap-2 overflow-x-auto scrollbar-hide lg:flex-col lg:overflow-visible">

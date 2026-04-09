@@ -1,23 +1,13 @@
 import { ImageResponse } from "next/og"
-import { readFile } from "fs/promises"
-import path from "path"
 
 export const runtime = "nodejs"
 export const alt = "ALFA3 — Agencia de Diseño y Desarrollo Web en Monterrey, Nuevo León"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
+// Nota: Satori (el engine de next/og) no soporta WOFF2. Usamos las fuentes
+// del sistema — Satori mapea "system-ui" a sus fuentes built-in automáticamente.
 export default async function Image() {
-  // Carga la fuente Grift-ExtraBold para el OG image
-  let fontData: ArrayBuffer | null = null
-  try {
-    fontData = await readFile(
-      path.join(process.cwd(), "public/fonts/Grift-ExtraBold.woff2")
-    )
-  } catch {
-    // Fallback a fuente del sistema si no se puede cargar
-  }
-
   return new ImageResponse(
     (
       <div
@@ -29,7 +19,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: fontData ? "Grift" : "system-ui, sans-serif",
+          fontFamily: "system-ui, sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
@@ -87,7 +77,6 @@ export default async function Image() {
               style={{
                 fontSize: 16,
                 color: "#438bff",
-                fontFamily: "'Courier New', monospace",
                 letterSpacing: 2,
               }}
             >
@@ -98,6 +87,7 @@ export default async function Image() {
           {/* Logo text */}
           <div
             style={{
+              display: "flex",
               fontSize: 96,
               fontWeight: 800,
               color: "#ffffff",
@@ -105,7 +95,7 @@ export default async function Image() {
               lineHeight: 1,
             }}
           >
-            ALFA
+            <span>ALFA</span>
             <span style={{ color: "#438bff" }}>3</span>
           </div>
 
@@ -157,7 +147,6 @@ export default async function Image() {
             bottom: 36,
             fontSize: 18,
             color: "#4a5568",
-            fontFamily: "'Courier New', monospace",
             letterSpacing: 1,
           }}
         >
@@ -167,16 +156,6 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: fontData
-        ? [
-            {
-              name: "Grift",
-              data: fontData,
-              weight: 800,
-              style: "normal",
-            },
-          ]
-        : [],
     }
   )
 }

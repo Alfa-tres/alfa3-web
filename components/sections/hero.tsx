@@ -1,5 +1,3 @@
-"use client"
-
 import { MessageCircle, ArrowDown, MapPin, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FloatingParticles } from "@/components/sections/particles"
@@ -33,10 +31,7 @@ export function Hero() {
         <div className="flex flex-col items-center text-center">
 
           {/* H1 SEO — visible y con keyword geo */}
-          <h1
-            className="animate-fade-up mb-4 flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2"
-            style={{ animationDelay: "0s" }}
-          >
+          <h1 className="animate-fade-up mb-4 flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2">
             <MapPin className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
             <span className="font-mono text-xs font-medium text-primary">
               Agencia de Diseño Web en Monterrey, Nuevo León
@@ -44,10 +39,7 @@ export function Hero() {
           </h1>
 
           {/* Gancho creativo — H2 visual */}
-          <h2
-            className="animate-fade-up font-extrabold leading-[1.1] tracking-tight text-[clamp(2rem,6vw,5rem)]"
-            style={{ animationDelay: "0.1s" }}
-          >
+          <h2 className="animate-fade-up-delay-1 font-extrabold leading-[1.1] tracking-tight text-[clamp(2rem,6vw,5rem)]">
             <span className="block text-foreground">Tu marca no necesita una web.</span>
             <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Necesita DOMINAR.
@@ -56,18 +48,12 @@ export function Hero() {
           </h2>
 
           {/* Subtext */}
-          <p
-            className="animate-fade-up mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground md:text-2xl"
-            style={{ animationDelay: "0.2s" }}
-          >
+          <p className="animate-fade-up-delay-2 mt-8 max-w-2xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
             No sitios genéricos — experiencias que convierten en Monterrey y todo Nuevo León.
           </p>
 
           {/* CTAs */}
-          <div
-            className="animate-fade-up mt-10 flex flex-col gap-4 sm:flex-row"
-            style={{ animationDelay: "0.3s" }}
-          >
+          <div className="animate-fade-up-delay-3 mt-10 flex flex-col gap-4 sm:flex-row">
             <Button
               asChild
               size="lg"
@@ -92,10 +78,7 @@ export function Hero() {
           </div>
 
           {/* Social proof */}
-          <div
-            className="animate-fade-up mt-10 flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-5 py-2.5"
-            style={{ animationDelay: "0.45s" }}
-          >
+          <div className="animate-fade-up-delay-4 mt-10 flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-5 py-2.5">
             <Sparkles className="h-3.5 w-3.5 text-primary" />
             <span className="font-mono text-xs text-primary">
               +50 negocios ya lo lograron

@@ -9,6 +9,22 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
 
+  // Tree-shaking agresivo de paquetes pesados con muchos exports.
+  // Reduce el tamaño del bundle de cliente significativamente.
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-slot",
+    ],
+  },
+
+  // Comprime las respuestas (gzip/brotli)
+  compress: true,
+
+  // No exponemos el header X-Powered-By
+  poweredByHeader: false,
+
   // Headers de seguridad y caché — aplica en ambas plataformas via Next.js
   async headers() {
     return [

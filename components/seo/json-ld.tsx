@@ -1,5 +1,5 @@
 import { SEO } from "@/lib/seo"
-import { faqItems } from "@/components/sections/faq"
+import { faqItems } from "@/lib/faq-data"
 
 type JsonLdData = Record<string, unknown>
 
