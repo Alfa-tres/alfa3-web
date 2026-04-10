@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { JsonLd } from "@/components/seo/json-ld"
 import { buildBreadcrumbJsonLd } from "@/lib/service-schemas"
-import { SEO } from "@/lib/seo"
+import { SEO, buildWhatsAppUrl } from "@/lib/seo"
 import {
   Globe, Paintbrush, Search, ShoppingCart, Bot,
   Layers, Smartphone, Gauge, RefreshCw, Shield, BarChart3,
@@ -25,8 +25,7 @@ export const metadata: Metadata = {
   },
 }
 
-const WHATSAPP_URL =
-  "https://wa.me/1234567890?text=Hola%20ALFA3%2C%20quiero%20información%20sobre%20sus%20servicios"
+const WHATSAPP_URL = buildWhatsAppUrl("Hola ALFA3, quiero información sobre sus servicios")
 
 const services = [
   {

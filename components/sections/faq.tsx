@@ -7,6 +7,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { faqItems } from "@/lib/faq-data"
+import { buildWhatsAppUrl } from "@/lib/seo"
+
+const WHATSAPP_URL = buildWhatsAppUrl("Hola ALFA3, tengo una pregunta")
 
 export function FAQ() {
   return (
@@ -33,7 +36,7 @@ export function FAQ() {
             Respondemos las dudas más comunes sobre diseño web en Monterrey y Nuevo León.
             Si no encuentras tu pregunta,{" "}
             <a
-              href="https://wa.me/1234567890?text=Hola%20ALFA3%2C%20tengo%20una%20pregunta"
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary underline underline-offset-2 hover:text-primary/80"

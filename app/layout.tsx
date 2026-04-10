@@ -53,7 +53,6 @@ export const metadata: Metadata = {
     title: SEO.title,
     description: SEO.description,
     images: [SEO.og.image],
-    creator: "@alfatres_mx", // TODO: handle real de Twitter/X
   },
 
   robots: {

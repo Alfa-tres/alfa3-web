@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { JsonLd } from "@/components/seo/json-ld"
 import { buildBreadcrumbJsonLd } from "@/lib/service-schemas"
-import { SEO } from "@/lib/seo"
+import { SEO, buildWhatsAppUrl } from "@/lib/seo"
 import { MessageCircle, ArrowRight, Code2, Zap, Heart } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -23,8 +23,7 @@ const breadcrumb = buildBreadcrumbJsonLd([
   { name: "Nosotros", href: "/nosotros" },
 ])
 
-const WHATSAPP_URL =
-  "https://wa.me/1234567890?text=Hola%20ALFA3%2C%20quiero%20platicar%20sobre%20mi%20proyecto"
+const WHATSAPP_URL = buildWhatsAppUrl("Hola ALFA3, quiero platicar sobre mi proyecto")
 
 const values = [
   {

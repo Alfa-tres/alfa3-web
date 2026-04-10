@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { JsonLd } from "@/components/seo/json-ld"
 import { buildServiceJsonLd, buildBreadcrumbJsonLd } from "@/lib/service-schemas"
-import { SEO } from "@/lib/seo"
+import { SEO, buildWhatsAppUrl } from "@/lib/seo"
 import { Check, MessageCircle, ShoppingCart, CreditCard, Package, BarChart3 } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -18,8 +18,7 @@ export const metadata: Metadata = {
   },
 }
 
-const WHATSAPP_URL =
-  "https://wa.me/1234567890?text=Hola%20ALFA3%2C%20quiero%20una%20tienda%20en%20línea"
+const WHATSAPP_URL = buildWhatsAppUrl("Hola ALFA3, quiero una tienda en línea")
 
 const schemas = [
   buildServiceJsonLd({

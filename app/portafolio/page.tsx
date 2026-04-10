@@ -3,7 +3,7 @@ import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { JsonLd } from "@/components/seo/json-ld"
 import { buildBreadcrumbJsonLd } from "@/lib/service-schemas"
-import { SEO } from "@/lib/seo"
+import { SEO, buildWhatsAppUrl } from "@/lib/seo"
 import { MessageCircle, ExternalLink, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -23,8 +23,7 @@ const breadcrumb = buildBreadcrumbJsonLd([
   { name: "Portafolio", href: "/portafolio" },
 ])
 
-const WHATSAPP_URL =
-  "https://wa.me/1234567890?text=Hola%20ALFA3%2C%20vi%20su%20portafolio%20y%20quiero%20cotizar%20mi%20proyecto"
+const WHATSAPP_URL = buildWhatsAppUrl("Hola ALFA3, vi su portafolio y quiero cotizar mi proyecto")
 
 // TODO: Reemplazar con proyectos reales al momento del deploy
 const projects = [

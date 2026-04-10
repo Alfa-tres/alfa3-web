@@ -54,8 +54,8 @@ export const organizationJsonLd: JsonLdData = {
   },
   sameAs: [
     SEO.social.instagram,
-    SEO.social.linkedin,
     SEO.social.facebook,
+    SEO.social.tiktok,
   ],
 }
 
@@ -88,7 +88,7 @@ export const localBusinessJsonLd: JsonLdData = {
   name: "ALFA3 — Agencia de Diseño y Desarrollo Web",
   alternateName: "ALFA3",
   url: SEO.siteUrl,
-  image: `${SEO.siteUrl}/og-image.png`,
+  image: `${SEO.siteUrl}${SEO.og.image}`,
   telephone: SEO.contact.phone,
   email: SEO.contact.email,
   priceRange: "$$",

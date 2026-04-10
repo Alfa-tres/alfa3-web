@@ -1,9 +1,11 @@
 import { MessageCircle, ArrowDown, MapPin, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FloatingParticles } from "@/components/sections/particles"
+import { buildWhatsAppUrl } from "@/lib/seo"
 
-const WHATSAPP_URL =
-  "https://wa.me/1234567890?text=Hola%20ALFA3%2C%20quiero%20dominar%20mi%20mercado%20digital"
+const WHATSAPP_URL = buildWhatsAppUrl(
+  "Hola ALFA3, quiero dominar mi mercado digital"
+)
 
 export function Hero() {
   return (

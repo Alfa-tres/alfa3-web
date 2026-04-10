@@ -1,8 +1,10 @@
 import { MessageCircle, Mail, ArrowRight, Clock, Shield, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { SEO, buildWhatsAppUrl } from "@/lib/seo"
 
-const WHATSAPP_URL =
-  "https://wa.me/1234567890?text=Hola%20ALFA3%2C%20quiero%20cotizar%20mi%20proyecto%20web"
+const WHATSAPP_URL = buildWhatsAppUrl(
+  "Hola ALFA3, quiero cotizar mi proyecto web"
+)
 
 const stats = [
   { value: "+50", label: "Proyectos entregados" },
@@ -60,9 +62,9 @@ export function Cta() {
             </a>
           </Button>
           <Button variant="outline" size="lg" asChild className="border-border text-foreground hover:bg-secondary hover:border-primary/30 text-base px-8 py-6">
-            <a href="mailto:hola@alfa3.dev">
+            <a href={`mailto:${SEO.contact.email}`}>
               <Mail className="h-5 w-5" />
-              info@alfatres.com
+              {SEO.contact.email}
             </a>
           </Button>
         </div>

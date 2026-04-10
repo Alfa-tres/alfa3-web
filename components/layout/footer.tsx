@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { MapPin, Mail, Clock } from "lucide-react"
+import { SEO, buildWhatsAppUrl } from "@/lib/seo"
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
@@ -9,8 +10,9 @@ const navLinks = [
   { label: "FAQ", href: "#preguntas-frecuentes" },
 ]
 
-const WHATSAPP_URL =
-  "https://wa.me/1234567890?text=Hola%20ALFA3%2C%20quiero%20dominar%20mi%20mercado%20digital"
+const WHATSAPP_URL = buildWhatsAppUrl(
+  "Hola ALFA3, quiero dominar mi mercado digital"
+)
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -41,10 +43,12 @@ export function Footer() {
             <address className="not-italic flex flex-col gap-2 text-xs leading-relaxed">
               <span className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
-                <span>Monterrey, Nuevo León, México</span>
+                <span>
+                  {SEO.contact.address.city}, {SEO.contact.address.state}, {SEO.countryName}
+                  {" "}· CP {SEO.contact.address.postalCode}
+                </span>
               </span>
               <span className="flex items-center gap-2">
-                {/* TODO: reemplazar con número real */}
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
@@ -52,17 +56,16 @@ export function Footer() {
                   className="hover:text-white transition-colors"
                   aria-label="Contactar por WhatsApp"
                 >
-                  WhatsApp: +52 81 XXXX XXXX
+                  WhatsApp: {SEO.contact.phoneDisplay}
                 </a>
               </span>
               <span className="flex items-center gap-2">
                 <Mail className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
-                {/* TODO: reemplazar con email real */}
                 <a
-                  href="mailto:hola@alfatres.com"
+                  href={`mailto:${SEO.contact.email}`}
                   className="hover:text-white transition-colors"
                 >
-                  hola@alfatres.com
+                  {SEO.contact.email}
                 </a>
               </span>
               <span className="flex items-center gap-2">
@@ -97,16 +100,7 @@ export function Footer() {
               Zona de servicio
             </p>
             <ul className="flex flex-col gap-1.5 text-sm md:items-end">
-              {[
-                "Monterrey",
-                "San Pedro Garza García",
-                "Guadalupe",
-                "Apodaca",
-                "San Nicolás de los Garza",
-                "Santa Catarina",
-                "García",
-                "Escobedo",
-              ].map((city) => (
+              {SEO.areaServed.map((city) => (
                 <li key={city}>{city}</li>
               ))}
             </ul>
@@ -119,10 +113,9 @@ export function Footer() {
         {/* Copyright + Redes */}
         <div className="flex flex-col items-center justify-between gap-4 text-center text-xs sm:flex-row">
           <p>&copy; {currentYear} ALFA3. Todos los derechos reservados.</p>
-          {/* TODO: reemplazar con URLs reales de redes sociales */}
           <div className="flex items-center gap-5">
             <a
-              href="https://www.instagram.com/alfatres.mx"
+              href={SEO.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-white"
@@ -131,22 +124,22 @@ export function Footer() {
               Instagram
             </a>
             <a
-              href="https://www.linkedin.com/company/alfa3"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-white"
-              aria-label="ALFA3 en LinkedIn"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://www.facebook.com/alfatres"
+              href={SEO.social.facebook}
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-white"
               aria-label="ALFA3 en Facebook"
             >
               Facebook
+            </a>
+            <a
+              href={SEO.social.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+              aria-label="ALFA3 en TikTok"
+            >
+              TikTok
             </a>
           </div>
         </div>
