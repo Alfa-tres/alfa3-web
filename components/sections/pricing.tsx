@@ -1,58 +1,53 @@
-"use client"
-
 import { Check, Star } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const plans = [
   {
-    name: "Landing Page",
+    name: "ALFA",
     price: "4,900",
     period: "pago único",
-    description: "Ideal para campañas, lanzamientos y captación de leads.",
+    description: "El fundamento. Perfecto para lanzamientos rápidos y captación de leads.",
     features: ["Diseño personalizado", "Responsive (móvil y desktop)", "Formulario de contacto", "Optimización SEO básica", "Entrega en 5-7 días", "1 revisión incluida"],
     popular: false,
   },
   {
-    name: "One Page",
+    name: "BETA",
     price: "7,900",
     period: "pago único",
-    description: "Tu empresa completa en una experiencia vertical moderna.",
-    features: ["Todo lo de Landing Page", "Hasta 5 secciones", "Animaciones y transiciones", "Integración WhatsApp", "Optimización de velocidad", "2 revisiones incluidas"],
+    description: "La evolución. Tu empresa completa en una experiencia vertical moderna.",
+    features: ["Todo lo de ALFA", "Hasta 5 secciones", "Animaciones y transiciones", "Integración WhatsApp", "Optimización de velocidad", "2 revisiones incluidas"],
     popular: true,
   },
   {
-    name: "Empresarial",
+    name: "GAMMA",
     price: "15,900",
     period: "pago único",
-    description: "Sitio multi-página completo para empresas establecidas.",
-    features: ["Todo lo de One Page", "Hasta 8 páginas", "Blog / Noticias", "Panel administrable", "SEO avanzado", "3 revisiones incluidas"],
+    description: "La dominación. Sitio multi-página con presencia empresarial total.",
+    features: ["Todo lo de BETA", "Hasta 8 páginas", "Blog / Noticias", "Panel administrable", "SEO avanzado", "3 revisiones incluidas"],
     popular: false,
   },
   {
-    name: "E-commerce",
+    name: "DELTA",
     price: "6,900",
     period: "/ mes",
-    description: "Tu tienda en línea con todo para vender.",
+    description: "El siguiente paso. Tu tienda en línea operativa 24/7.",
     features: ["Catálogo de productos", "Pasarela de pagos", "Carrito de compras", "Gestión de inventario", "Panel de administración", "Soporte mensual incluido"],
     popular: false,
   },
 ]
 
 export function Pricing() {
-  const { ref, inView } = useInView(0.05)
-
   return (
-    <section id="precios" className="relative overflow-hidden bg-muted py-24 lg:py-32" ref={ref}>
+    <section id="precios" className="relative overflow-hidden bg-muted py-24 lg:py-32">
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className={`mb-16 text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="animate-fade-up mb-16 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Inversión"}
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl text-balance">
-            Precios <span className="text-primary">transparentes</span>
+            Precios de páginas web en Monterrey{" "}<span className="text-primary">transparentes</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Sin letras chiquitas. Conoce nuestros planes y elige el que mejor se adapte a las necesidades de tu negocio.
+            Sin letras chiquitas. Conoce nuestros planes en pesos mexicanos y elige el que mejor se adapte a las necesidades de tu negocio en Nuevo León.
           </p>
         </div>
 
@@ -60,10 +55,10 @@ export function Pricing() {
           {plans.map((plan, i) => (
             <div
               key={plan.name}
-              className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-card transition-all duration-700 hover:shadow-xl ${
+              className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-card animate-fade-up transition-shadow duration-500 hover:shadow-xl ${
                 plan.popular ? "border-primary shadow-lg shadow-primary/10 scale-[1.02]" : "border-border hover:border-primary/30"
-              } ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              }`}
+              style={{ animationDelay: `${i * 100}ms` }}
             >
               {plan.popular && (
                 <div className="flex items-center justify-center gap-1.5 bg-primary px-4 py-2 text-primary-foreground">

@@ -1,8 +1,4 @@
-"use client"
-
-import { useRef, useState, useEffect } from "react"
 import { Zap, TrendingUp, MousePointer2, Compass, RefreshCw } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const items = [
   {
@@ -52,71 +48,12 @@ const items = [
   },
 ]
 
-function BentoCard({ item, delay }: { item: typeof items[number]; delay: number }) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const el = cardRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), delay)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [delay])
-
-  const Icon = item.icon
-
-  return (
-    <div
-      ref={cardRef}
-      className={`group relative overflow-hidden rounded-2xl border transition-all duration-700 ${item.colSpan} ${
-        item.featured ? "border-primary/30 bg-primary/5" : "border-border bg-card"
-      } ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-    >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-primary/8 via-transparent to-transparent" aria-hidden="true" />
-      <div className={`relative z-10 flex h-full flex-col justify-between p-8 ${item.wide ? "lg:flex-row lg:items-center lg:gap-16" : ""}`}>
-        <div className={`flex items-start justify-between ${item.wide ? "lg:flex-col lg:gap-4" : "mb-8"}`}>
-          <span
-            className={`font-black leading-none tabular-nums transition-colors duration-300 group-hover:text-primary ${item.featured ? "text-primary" : "text-foreground/10"}`}
-            style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
-            aria-hidden="true"
-          >
-            {item.metric}
-          </span>
-          <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 ${
-            item.featured ? "bg-primary/15 text-primary group-hover:bg-primary/25" : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
-          }`}>
-            <Icon className="h-5 w-5" />
-          </div>
-        </div>
-        <div className={item.wide ? "lg:max-w-2xl" : ""}>
-          <h3 className="mb-2 text-lg font-extrabold leading-tight text-foreground">{item.title}</h3>
-          <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export function Features() {
-  const { ref: headerRef, inView: headerVisible } = useInView(0.3)
-
   return (
     <section id="por-que-funciona" className="relative py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-        <div
-          ref={headerRef}
-          className={`mb-14 text-center transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
+        <div className="animate-fade-up mb-14 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Por qué funciona"}
           </span>
@@ -126,9 +63,40 @@ export function Features() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, i) => (
-            <BentoCard key={item.title} item={item} delay={i * 80} />
-          ))}
+          {items.map((item, i) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.title}
+                className={`group relative overflow-hidden rounded-2xl border animate-fade-up ${item.colSpan} ${
+                  item.featured ? "border-primary/30 bg-primary/5" : "border-border bg-card"
+                }`}
+                style={{ animationDelay: `${i * 80}ms` }}
+              >
+                <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-primary/8 via-transparent to-transparent" aria-hidden="true" />
+                <div className={`relative z-10 flex h-full flex-col justify-between p-8 ${item.wide ? "lg:flex-row lg:items-center lg:gap-16" : ""}`}>
+                  <div className={`flex items-start justify-between ${item.wide ? "lg:flex-col lg:gap-4" : "mb-8"}`}>
+                    <span
+                      className={`font-black leading-none tabular-nums transition-colors duration-300 group-hover:text-primary ${item.featured ? "text-primary" : "text-foreground/10"}`}
+                      style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)" }}
+                      aria-hidden="true"
+                    >
+                      {item.metric}
+                    </span>
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 ${
+                      item.featured ? "bg-primary/15 text-primary group-hover:bg-primary/25" : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
+                    }`}>
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <div className={item.wide ? "lg:max-w-2xl" : ""}>
+                    <h3 className="mb-2 text-lg font-extrabold leading-tight text-foreground">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
 
       </div>

@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 const navLinks = [
-  { label: "Servicios", href: "#servicios" },
-  { label: "¿Cómo lo hacemos?", href: "#como-lo-hacemos" },
-  { label: "Precios", href: "#precios" },
-  { label: "Portafolio", href: "#portafolio" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "¿Cómo lo hacemos?", href: "/#como-lo-hacemos" },
+  { label: "Precios", href: "/precios" },
+  { label: "Portafolio", href: "/portafolio" },
 ]
 
 export function Navbar() {
@@ -26,22 +26,26 @@ export function Navbar() {
     <nav className="relative z-50 border-b border-border bg-background/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
-        <a href="#inicio" className="flex-shrink-0">
+        <a href="/" className="flex-shrink-0">
           <Image
             src="/original texto negro.png"
-            alt="ALFA3"
+            alt="ALFA3 — Agencia de diseño web en Monterrey"
             width={200}
             height={60}
+            sizes="(max-width: 768px) 160px, 200px"
             className="h-12 w-auto block dark:hidden"
             priority
+            fetchPriority="high"
           />
           <Image
             src="/original texto blanco.png"
-            alt="ALFA3"
+            alt="ALFA3 — Agencia de diseño web en Monterrey"
             width={200}
             height={60}
+            sizes="(max-width: 768px) 160px, 200px"
             className="h-12 w-auto hidden dark:block"
             priority
+            fetchPriority="high"
           />
         </a>
 

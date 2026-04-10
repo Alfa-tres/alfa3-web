@@ -1,38 +1,88 @@
-"use client"
-
 import Image from "next/image"
+import { MapPin, Mail, Clock } from "lucide-react"
+import { SEO, buildWhatsAppUrl } from "@/lib/seo"
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
   { label: "¿Cómo lo hacemos?", href: "#como-lo-hacemos" },
   { label: "Precios", href: "#precios" },
   { label: "Portafolio", href: "#portafolio" },
+  { label: "FAQ", href: "#preguntas-frecuentes" },
 ]
 
+const WHATSAPP_URL = buildWhatsAppUrl(
+  "Hola ALFA3, quiero dominar mi mercado digital"
+)
+
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="border-t border-border bg-[#000000] text-[#9ca3af]">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-3">
-          {/* Logo + Description */}
-          <div className="flex flex-col items-center gap-4 md:items-start">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+
+          {/* Logo + Descripción + NAP */}
+          <div className="flex flex-col gap-5 md:items-start">
             <a href="#inicio">
               <Image
                 src="/original texto blanco.png"
-                alt="ALFA3"
+                alt="ALFA3 — Agencia de diseño web en Monterrey"
                 width={160}
                 height={48}
+                sizes="160px"
                 className="h-10 w-auto"
               />
             </a>
-            <p className="max-w-xs text-center text-sm leading-relaxed md:text-left">
-              Transformamos ideas en soluciones digitales de alto impacto con
-              tecnología de vanguardia.
+            <p className="max-w-xs text-sm leading-relaxed">
+              Agencia de diseño y desarrollo web en Monterrey, Nuevo León.
+              Transformamos ideas en soluciones digitales de alto impacto.
             </p>
+
+            {/* NAP — Name / Address / Phone */}
+            <address className="not-italic flex flex-col gap-2 text-xs leading-relaxed">
+              <span className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+                <span>
+                  {SEO.contact.address.city}, {SEO.contact.address.state}, {SEO.countryName}
+                  {" "}· CP {SEO.contact.address.postalCode}
+                </span>
+              </span>
+              <span className="flex items-center gap-2">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                  aria-label="Contactar por WhatsApp"
+                >
+                  WhatsApp: {SEO.contact.phoneDisplay}
+                </a>
+              </span>
+              <span className="flex items-center gap-2">
+                <Mail className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+                <a
+                  href={`mailto:${SEO.contact.email}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {SEO.contact.email}
+                </a>
+              </span>
+              <span className="flex items-center gap-2">
+                <Clock className="h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
+                <span>Lun – Vie, 9:00 – 18:00 CST</span>
+              </span>
+            </address>
           </div>
 
-          {/* Navigation */}
-          <nav className="flex flex-wrap items-center justify-center gap-6" aria-label="Footer navigation">
+          {/* Navegación */}
+          <nav
+            className="flex flex-col gap-3 md:items-center"
+            aria-label="Footer navigation"
+          >
+            <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-white/40">
+              Navegación
+            </p>
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -44,17 +94,54 @@ export function Footer() {
             ))}
           </nav>
 
-          {/* Right side — branding */}
-          <div className="flex flex-col items-center gap-2 md:items-end">
+          {/* Zonas de servicio */}
+          <div className="flex flex-col gap-3 md:items-end">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-widest text-white/40">
+              Zona de servicio
+            </p>
+            <ul className="flex flex-col gap-1.5 text-sm md:items-end">
+              {SEO.areaServed.map((city) => (
+                <li key={city}>{city}</li>
+              ))}
+            </ul>
           </div>
         </div>
 
         {/* Divider */}
         <div className="my-10 h-px bg-[#1e293b]" />
 
-        {/* Copyright */}
-        <div className="text-center text-xs">
-          <p>&copy; 2026 ALFA3. Todos los derechos reservados.</p>
+        {/* Copyright + Redes */}
+        <div className="flex flex-col items-center justify-between gap-4 text-center text-xs sm:flex-row">
+          <p>&copy; {currentYear} ALFA3. Todos los derechos reservados.</p>
+          <div className="flex items-center gap-5">
+            <a
+              href={SEO.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+              aria-label="ALFA3 en Instagram"
+            >
+              Instagram
+            </a>
+            <a
+              href={SEO.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+              aria-label="ALFA3 en Facebook"
+            >
+              Facebook
+            </a>
+            <a
+              href={SEO.social.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+              aria-label="ALFA3 en TikTok"
+            >
+              TikTok
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,11 +1,10 @@
-"use client"
-
 import { MessageCircle, Mail, ArrowRight, Clock, Shield, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useInView } from "@/hooks/use-in-view"
+import { SEO, buildWhatsAppUrl } from "@/lib/seo"
 
-const WHATSAPP_URL =
-  "https://wa.me/1234567890?text=Hola%20ALFA3%2C%20quiero%20cotizar%20mi%20proyecto%20web"
+const WHATSAPP_URL = buildWhatsAppUrl(
+  "Hola ALFA3, quiero cotizar mi proyecto web"
+)
 
 const stats = [
   { value: "+50", label: "Proyectos entregados" },
@@ -20,10 +19,8 @@ const guarantees = [
 ]
 
 export function Cta() {
-  const { ref, inView } = useInView(0.1)
-
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32" ref={ref}>
+    <section className="relative overflow-hidden py-24 lg:py-32">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.03]"
@@ -34,7 +31,7 @@ export function Cta() {
 
       <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
 
-        <div className={`mb-8 flex justify-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="animate-fade-up mb-8 flex justify-center">
           <div className="inline-flex items-center gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/30">
               <span className="font-mono text-xs font-extrabold leading-none">24H</span>
@@ -46,17 +43,17 @@ export function Cta() {
           </div>
         </div>
 
-        <h2 className={`text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl transition-all duration-700 delay-100 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <h2 className="animate-fade-up-delay-1 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           Tu próximo cliente{" "}
           <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">ya te está buscando.</span>
         </h2>
 
-        <p className={`mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground transition-all duration-700 delay-200 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <p className="animate-fade-up-delay-2 mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
           No lo dejes encontrar a tu competencia primero. Hablemos hoy y definamos cómo vas a dominar tu mercado.
         </p>
 
 
-        <div className={`my-10 flex flex-col items-center justify-center gap-4 sm:flex-row transition-all duration-700 delay-[400ms] ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="animate-fade-up-delay-4 my-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button asChild size="lg" className="gap-2 bg-primary text-primary-foreground shadow-xl shadow-primary/30 hover:bg-primary/90 text-base px-8 py-6 group">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="h-5 w-5" />
@@ -65,14 +62,14 @@ export function Cta() {
             </a>
           </Button>
           <Button variant="outline" size="lg" asChild className="border-border text-foreground hover:bg-secondary hover:border-primary/30 text-base px-8 py-6">
-            <a href="mailto:hola@alfa3.dev">
+            <a href={`mailto:${SEO.contact.email}`}>
               <Mail className="h-5 w-5" />
-              info@alfatres.com
+              {SEO.contact.email}
             </a>
           </Button>
         </div>
 
-        <div className={`mt-8 flex flex-wrap items-center justify-center gap-4 transition-all duration-700 delay-500 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+        <div className="animate-fade-up-delay-4 mt-8 flex flex-wrap items-center justify-center gap-4" style={{ animationDelay: "0.5s" }}>
           {guarantees.map(({ icon: Icon, text }) => (
             <div key={text} className="flex items-center gap-1.5 text-sm text-muted-foreground/60">
               <Icon className="h-3.5 w-3.5 text-primary/50" />

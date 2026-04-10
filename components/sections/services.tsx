@@ -5,7 +5,6 @@ import {
   Globe, Paintbrush, Search, ShoppingCart, Bot, BarChart3,
   Layers, Smartphone, Gauge, RefreshCw, Shield,
 } from "lucide-react"
-import { useInView } from "@/hooks/use-in-view"
 
 const services = [
   { icon: Globe, title: "Desarrollo Web", description: "Sitios modernos y rápidos que generan confianza desde el primer clic. Código a la medida, no plantillas genéricas." },
@@ -25,7 +24,6 @@ const CARD_WIDTH = 360
 const GAP = 24
 
 export function Services() {
-  const { ref, inView } = useInView(0.1)
   const trackRef = useRef<HTMLDivElement>(null)
   const [isDragging, setIsDragging] = useState(false)
   const dragStart = useRef({ x: 0, scrollLeft: 0 })
@@ -53,7 +51,7 @@ export function Services() {
   }
 
   return (
-    <section id="servicios" className="relative overflow-hidden py-24 lg:py-32" ref={ref}>
+    <section id="servicios" className="relative overflow-hidden py-24 lg:py-32">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.02]"
         style={{ backgroundImage: `radial-gradient(circle, #438bff 1px, transparent 1px)`, backgroundSize: "32px 32px" }}
@@ -61,15 +59,15 @@ export function Services() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className={`mb-14 text-center transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div className="animate-fade-up mb-14 text-center">
           <span className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1 font-mono text-xs font-medium text-primary">
             {"// Nuestros Servicios"}
           </span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl text-balance">
-            Todo lo que tu negocio{" "}<span className="text-primary">necesita para dominar</span>
+            Todo lo que tu negocio{" "}<span className="text-primary">necesita para dominar en Monterrey</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground leading-relaxed">
-            Desde el diseño hasta la automatización con IA — cubrimos cada aspecto de tu presencia digital.
+            Desde el diseño hasta la automatización con IA — cubrimos cada aspecto de tu presencia digital en Monterrey, Nuevo León y todo México.
           </p>
         </div>
       </div>
@@ -91,10 +89,8 @@ export function Services() {
             return (
               <div
                 key={s.title}
-                className={`group relative flex shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-card p-8 transition-all duration-700 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/8 hover:-translate-y-2 ${
-                  inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-                style={{ width: CARD_WIDTH, transitionDelay: `${i * 60}ms` }}
+                className="group relative flex shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-card p-8 animate-fade-up transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/8 hover:-translate-y-2"
+                style={{ width: CARD_WIDTH, animationDelay: `${i * 60}ms` }}
               >
                 <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-br from-primary/6 via-transparent to-transparent" />
                 <div className="relative z-10 mb-6">
